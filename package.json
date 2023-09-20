@@ -3,20 +3,31 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "next dev",
+        "dev": "next dev -H 0.0.0.0",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "deploy": "next build && firebase deploy"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.4.0",
+        "@fortawesome/free-brands-svg-icons": "^6.4.0",
+        "@fortawesome/react-fontawesome": "^0.2.0",
+        "@react-icons/all-files": "https://github.com/react-icons/react-icons/releases/download/v4.10.1/react-icons-all-files-4.10.1.tgz",
         "@types/node": "20.6.0",
         "@types/react": "18.2.21",
         "@types/react-dom": "18.2.7",
         "eslint": "8.49.0",
         "eslint-config-next": "13.4.19",
+        "framer-motion": "^10.16.4",
+        "lottie-react": "^2.4.0",
         "next": "13.4.19",
         "react": "18.2.0",
         "react-dom": "18.2.0",
+        "react-icons": "^4.11.0",
         "typescript": "5.2.2"
+    },
+    "devDependencies": {
+        "file-loader": "^6.2.0"
     }
 }

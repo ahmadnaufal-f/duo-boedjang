@@ -1,0 +1,41 @@
+.chocolateSplash {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* transform: scaleY(0.5) translateY(-50%); */
+    z-index: -1;
+}
+
+.chocolateSplashBottom {
+    pointer-events: none;
+    top: unset;
+    bottom: 0;
+}
+
+.chocolateSplash > img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+}
+
+.bottomTextContainer {
+    pointer-events: none;
+    position: fixed;
+    bottom: 5vh;
+    width: 100%;
+    text-align: center;
+}
+
+.bottomText {
+    font-size: 1.5rem;
+    transform: skewY(-3deg);
+    color: var(--color-white);
+    text-shadow: 0 0 6px var(--main-color), 3px 3px var(--main-color);
+}
+
+.bottomTextContainer[data-active-index="2"] {
+    bottom: 10vh;
+}
