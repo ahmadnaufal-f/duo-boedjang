@@ -1,7 +1,7 @@
 "use client"
 
 import styles from "./advantage-page.module.css"
-import { motion, Transition } from "framer-motion"
+import { AnimatePresence, motion, Transition } from "framer-motion"
 import { Concert_One } from "next/font/google"
 import { GiReceiveMoney } from "react-icons/gi"
 import { FaFileContract, FaPeopleGroup } from "react-icons/fa6"
@@ -71,28 +71,31 @@ const concertOne = Concert_One({ weight: ["400"], subsets: ["latin"] })
 export default function AdvantagePage({ activeIndex }: Props) {
     return (
         <div className={`${styles.advantagePage} virtual-page`} data-index={3}>
-            <motion.div layout className={styles.titleWrapper}>
+            <motion.div className={styles.titleWrapper}>
                 <h1 className={styles.titleText}>Keunggulan Kami</h1>
             </motion.div>
-            {activeIndex === 3 ? (
-                <div className={styles.advantageWrapper}>
-                    {advantages.map((advantage, index) => (
-                        <motion.div
-                            key={index}
-                            className={styles.advantage}
-                            initial={{ opacity: 0, x: 30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ ...springTransition, delay: 0.5 + index * 0.1 }}
-                        >
-                            <div className={styles.iconWrapper}>{advantage.icon}</div>
-                            <div className={styles.advantageText}>
-                                <h3 className={styles.advantageTitle}>{advantage.title}</h3>
-                                <p className={`${concertOne.className} ${styles.advantageDescription}`}>{advantage.description}</p>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-            ) : null}
+            <AnimatePresence>
+                {activeIndex === 3 ? (
+                    <div className={styles.advantageWrapper} key="advantage-wrapper">
+                        {advantages.map((advantage, index) => (
+                            <motion.div
+                                key={index}
+                                className={styles.advantage}
+                                initial={{ opacity: 0, x: 30 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -30 }}
+                                transition={{ ...springTransition, delay: 0.5 + index * 0.1 }}
+                            >
+                                <div className={styles.iconWrapper}>{advantage.icon}</div>
+                                <div className={styles.advantageText}>
+                                    <h3 className={styles.advantageTitle}>{advantage.title}</h3>
+                                    <p className={`${concertOne.className} ${styles.advantageDescription}`}>{advantage.description}</p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                ) : null}
+            </AnimatePresence>
             <CtaButton text={"Hubungi Admin"} activeIndex={activeIndex} />
         </div>
     )

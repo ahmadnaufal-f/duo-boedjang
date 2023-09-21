@@ -4,6 +4,7 @@ import AdvantagePage from "@/container/advantage-page/advantage-page"
 import styles from "./page.module.css"
 import WelcomePage from "@/container/welcome-page/welcome-page"
 import { useState, useEffect, useRef } from "react"
+import PackagesPage from "@/container/packages-page/packages-page"
 
 export default function Home() {
     const containerRef = useRef<HTMLDivElement | null>(null)
@@ -45,6 +46,7 @@ export default function Home() {
         <main className={styles.main} id={"page-container"} ref={containerRef} data-active-index={activeIndex} data-prev-index={prevIndex}>
             <WelcomePage activeIndex={activeIndex} />
             <AdvantagePage activeIndex={activeIndex} />
+            <PackagesPage activeIndex={activeIndex} />
         </main>
     )
 }
