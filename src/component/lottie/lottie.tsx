@@ -23,17 +23,9 @@ export default function Lottie({ autoplay = true, loop = true, activeIndex }: Pr
     useEffect(() => {
         if (lottieRef.current) {
             const pageContainer = document.getElementById("page-container")
-            const prevIndex = parseInt(pageContainer?.getAttribute("data-prev-index") || "0", 10)
-            if (prevIndex !== activeIndex) {
-                if (activeIndex > prevIndex) {
-                    lottieRef.current.setDirection(1)
-                } else if (activeIndex < prevIndex) {
-                    lottieRef.current.setDirection(-1)
-                }
-
-                console.log(prevIndex * 30, activeIndex * 30 + 1)
-                lottieRef.current.playSegments([prevIndex * 30, activeIndex * 30 + 1], true)
-            }
+            const direction = parseInt(pageContainer?.getAttribute("data-direction") || "0", 10)
+            lottieRef.current.setDirection(-1)
+            lottieRef.current.playSegments([activeIndex * 30 + direction * -30, activeIndex * 30 + 1], true)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeIndex])

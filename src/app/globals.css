@@ -89,7 +89,6 @@ a {
     height: 100%;
     width: 100%;
     display: flex;
-    scroll-snap-align: start;
     flex-shrink: 0;
     flex-direction: column;
 }

@@ -2,7 +2,7 @@
 
 import styles from "./advantage-page.module.css"
 import { AnimatePresence, motion, Transition } from "framer-motion"
-import { Concert_One } from "next/font/google"
+import { Concert_One, Dosis } from "next/font/google"
 import { GiReceiveMoney } from "react-icons/gi"
 import { FaFileContract, FaPeopleGroup } from "react-icons/fa6"
 import { PiMedalFill } from "react-icons/pi"
@@ -18,6 +18,7 @@ const springTransition: Transition = {
 
 type Props = {
     activeIndex: number
+    direction: number
 }
 
 type Advantage = {
@@ -67,8 +68,9 @@ const advantages: Advantage[] = [
 ]
 
 const concertOne = Concert_One({ weight: ["400"], subsets: ["latin"] })
+const dosis = Dosis({ subsets: ["latin"] })
 
-export default function AdvantagePage({ activeIndex }: Props) {
+export default function AdvantagePage({ activeIndex, direction }: Props) {
     return (
         <div className={`${styles.advantagePage} virtual-page`} data-index={3}>
             <motion.div className={styles.titleWrapper}>
@@ -81,14 +83,14 @@ export default function AdvantagePage({ activeIndex }: Props) {
                             <motion.div
                                 key={index}
                                 className={styles.advantage}
-                                initial={{ opacity: 0, x: 30 }}
+                                initial={{ opacity: 0, x: 30 * direction }}
                                 animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -30 }}
+                                exit={{ opacity: 0, x: -30 * direction }}
                                 transition={{ ...springTransition, delay: 0.5 + index * 0.1 }}
                             >
                                 <div className={styles.iconWrapper}>{advantage.icon}</div>
                                 <div className={styles.advantageText}>
-                                    <h3 className={styles.advantageTitle}>{advantage.title}</h3>
+                                    <h3 className={`${dosis.className} ${styles.advantageTitle}`}>{advantage.title}</h3>
                                     <p className={`${concertOne.className} ${styles.advantageDescription}`}>{advantage.description}</p>
                                 </div>
                             </motion.div>

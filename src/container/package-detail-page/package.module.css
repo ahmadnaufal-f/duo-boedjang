@@ -1,0 +1,79 @@
+.packagesPage {
+    height: 100vh;
+}
+
+.titleWrapper h1 {
+    font-size: 1.5rem;
+    color: var(--main-color);
+    text-align: center;
+    padding: 2rem 0 1rem;
+}
+
+.table {
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-auto-flow: row;
+    align-items: center;
+    font-size: 1.8vh;
+    line-height: 1.1;
+    padding: 1rem 0 0.5rem;
+    margin-inline: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(243, 241, 236, 0.5);
+    box-shadow: 1.8px 1.8px 3.6px rgba(0, 0, 0, 0.07), 5px 5px 10px rgba(0, 0, 0, 0.1), 12.1px 12.1px 24.1px rgba(0, 0, 0, 0.13),
+        40px 40px 80px rgba(0, 0, 0, 0.2);
+}
+
+.tableHeaderItem,
+.tableFooterItem {
+    grid-column: 3 / 4;
+    font-size: 1rem;
+    text-align: center;
+    margin-block-end: 0.5rem;
+}
+
+.tableHeaderItemFirst,
+.tableFooterItemFirst {
+    grid-column: 2 / 3;
+}
+
+.tableRowItem {
+    padding: 1px 1rem;
+    --border-color: rgba(0, 0, 0, 0.2);
+    height: 100%;
+}
+
+.tableRowFirst {
+    border-top: solid 1px var(--border-color);
+    padding-block-start: 6px;
+}
+
+.tableRowLast {
+    border-bottom: solid 1px var(--border-color);
+    padding-block-end: 6px;
+}
+
+.tableRowSeparate {
+    padding-block-end: 8px;
+}
+
+.tableColumnOne {
+    background-color: rgba(233, 213, 173, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tableColumnTwo {
+    background-color: rgba(230, 199, 154, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tableFooterItem {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-block-start: 0.5rem;
+}

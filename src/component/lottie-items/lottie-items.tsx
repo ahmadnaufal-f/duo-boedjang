@@ -23,6 +23,7 @@ export default function LottieItems({ activeIndex }: Props) {
             layout
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
             data-active-index={activeIndex}
         >
             <motion.div

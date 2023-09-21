@@ -19,15 +19,17 @@ type Props = {
 export default function Decoration({ activeIndex }: Props) {
     return (
         <>
-            <motion.div
-                className={styles.chocolateSplash}
-                initial={{ opacity: 0, y: -75 }}
-                animate={activeIndex === 2 ? { opacity: 1, y: -25 } : {}}
-                exit={{ opacity: 0, y: -75 }}
-                transition={springTransition}
-            >
-                <Image src="/images/chocolate.svg" alt="Chocolate Splash" width={750} height={500} />
-            </motion.div>
+            {activeIndex === 2 && (
+                <motion.div
+                    className={styles.chocolateSplash}
+                    initial={{ opacity: 0, y: -75 }}
+                    animate={activeIndex === 2 ? { opacity: 1, y: -25 } : {}}
+                    exit={{ opacity: 0, y: -75 }}
+                    transition={springTransition}
+                >
+                    <Image src="/images/chocolate.svg" alt="Chocolate Splash" width={750} height={500} />
+                </motion.div>
+            )}
 
             <motion.div
                 className={styles.bottomTextContainer}
