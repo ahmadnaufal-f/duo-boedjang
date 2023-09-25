@@ -21,7 +21,7 @@ export default function CtaButton({ text, activeIndex }: Props) {
             transition={{ delay: -0.1 }}
         >
             <div className={styles.buttonWrapper}>
-                <Link href="https://wa.me/6282330447440" target="_blank">
+                <Link href="https://wa.me/6287864648977" target="_blank">
                     <FontAwesomeIcon icon={faWhatsapp} />
                     {text}
                 </Link>

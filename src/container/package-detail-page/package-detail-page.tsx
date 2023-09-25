@@ -5,7 +5,7 @@ import { Exo, Concert_One } from "next/font/google"
 import localFont from "next/font/local"
 import { packages, headers, Header, items, Items } from "./items"
 import { FaCheck } from "react-icons/fa"
-import { motion, Transition, AnimatePresence } from "framer-motion"
+import { motion, Transition } from "framer-motion"
 
 const springTransition: Transition = {
     type: "spring",

@@ -5,6 +5,7 @@ import Decoration from "@/component/decoration/decoration"
 import Image from "next/image"
 import { motion, Transition } from "framer-motion"
 import LottieItems from "@/component/lottie-items/lottie-items"
+import Toast from "@/component/toast/toast"
 
 const springTransition: Transition = {
     type: "spring",
@@ -14,9 +15,10 @@ const springTransition: Transition = {
 
 type Props = {
     activeIndex: number
+    direction: number
 }
 
-export default function WelcomePage({ activeIndex }: Props) {
+export default function WelcomePage({ activeIndex, direction }: Props) {
     return (
         <>
             <div className={`${styles.page} virtual-page`} data-index={0}>
@@ -35,6 +37,7 @@ export default function WelcomePage({ activeIndex }: Props) {
                         </div>
                     </motion.div>
                 ) : null}
+                <Toast text={"Hai! Silahkan swipe ke atas untuk mencari tahu lebih lanjut"} direction={direction} />
             </div>
         </>
     )

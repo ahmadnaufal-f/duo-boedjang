@@ -43,7 +43,7 @@ export default function PackageAddPage({ activeIndex, direction }: Props) {
                         exit={{ opacity: 0, x: -30 * direction }}
                         transition={{ ...springTransition, delay: 0.5 }}
                     >
-                        <Image src="/images/packagesplus.webp" alt="teh" width={458} height={678} />
+                        <Image src="/images/packagesplus.webp" alt="paket penjualan teh" width={458} height={678} />
                     </motion.div>
                     <motion.div
                         className={styles.descriptionWrapper}
@@ -59,7 +59,7 @@ export default function PackageAddPage({ activeIndex, direction }: Props) {
                                 {text}
                             </div>
                         ))}
-                        <Image src="/images/logo.svg" alt="Package" className={styles.logoUnderlay} width={210} height={210} />
+                        <Image src="/images/logo.svg" alt="logo es coklat duo boedjang" className={styles.logoUnderlay} width={210} height={210} />
                     </motion.div>
                     <CtaButton text="Hubungi Admin" activeIndex={activeIndex} />
                 </>

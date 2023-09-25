@@ -1,10 +1,16 @@
 "use client"
 
 import styles from "./lottie-items.module.css"
-import { lazy, Suspense } from "react"
+import { lazy, useState, useEffect, Suspense } from "react"
 import { motion, Transition } from "framer-motion"
 
-const LazyLottie = lazy(() => import("@/component/lottie/lottie"))
+const importLazyLottie = () => import("@/component/lottie/lottie")
+
+const LazyLottie = lazy(importLazyLottie)
+
+function Loading() {
+    return <div className="loader" />
+}
 
 const springTransition: Transition = {
     type: "spring",
@@ -17,6 +23,18 @@ type Props = {
 }
 
 export default function LottieItems({ activeIndex }: Props) {
+    const [isLoaded, setIsLoaded] = useState(false)
+
+    useEffect(() => {
+        // Initiate the loading by calling the wrapped import function
+        importLazyLottie()
+            .then(() => {
+                setIsLoaded(true)
+            })
+            .catch((error) => {
+                console.error("Error loading LazyLottie:", error)
+            })
+    }, [])
     return (
         <motion.div
             className={styles.lottieWrapper}
@@ -32,9 +50,13 @@ export default function LottieItems({ activeIndex }: Props) {
                 transition={springTransition}
                 id={"lottie-container"}
             >
-                <Suspense fallback={<div className={styles.loader}></div>}>
-                    <LazyLottie autoplay={false} loop={false} activeIndex={activeIndex} />
-                </Suspense>
+                {isLoaded ? (
+                    <Suspense fallback={<div className="loader" />}>
+                        <LazyLottie autoplay={false} loop={false} activeIndex={activeIndex} />
+                    </Suspense>
+                ) : (
+                    <Loading />
+                )}
             </motion.div>
         </motion.div>
     )

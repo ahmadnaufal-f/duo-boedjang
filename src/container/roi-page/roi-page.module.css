@@ -1,0 +1,195 @@
+.packagesPage {
+    height: 100svh;
+    height: 100vh;
+}
+
+.titleWrapper h1 {
+    font-size: 1.5rem;
+    color: var(--main-color);
+    text-align: center;
+    padding: 1rem 0 0.5rem;
+}
+
+.table {
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(3, auto);
+    grid-auto-flow: row;
+    align-items: center;
+    font-size: clamp(13px, 1.8vh, 1.2rem);
+    line-height: 1.1;
+    margin-inline: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(243, 241, 236, 0.5);
+    box-shadow: 1.8px 1.8px 3.6px rgba(0, 0, 0, 0.07), 5px 5px 10px rgba(0, 0, 0, 0.1), 12.1px 12.1px 24.1px rgba(0, 0, 0, 0.13),
+        40px 40px 80px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+.tableHeader {
+    font-size: clamp(1rem, 2.25vh, 1.5rem);
+    background-color: var(--main-color);
+    color: #fee790;
+    padding: 0.25rem 1rem 0.4rem;
+    text-align: center;
+}
+
+.tableHeaderSpan {
+    grid-column: 1 / 4;
+    padding-block-start: 0.5rem;
+}
+
+.tableRow {
+    padding: 0.45rem 1rem;
+    text-align: center;
+    color: var(--main-color);
+}
+
+.tableFirstRow {
+    padding-top: 0.75rem;
+}
+
+.tableLastRow {
+    padding-bottom: 0.75rem;
+}
+
+.tableColumnOne {
+    text-align: start;
+    padding-inline: 1rem 2rem;
+}
+
+.tableColumnTwo {
+    background-color: rgba(233, 213, 173, 0.6);
+}
+
+.tableColumnThree {
+    background-color: rgba(230, 199, 154, 0.7);
+}
+
+.tableRowSpan {
+    grid-row: 8 / span 2;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tableRowSummary {
+    background-color: rgba(230, 183, 172, 0.7);
+    font-weight: 600;
+}
+
+.swipeTable {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: calc(100vw - 2rem);
+    margin: 0 auto 0.25rem;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+
+    font-size: clamp(13px, 1.8vh, 1.2rem);
+    line-height: 1.1;
+    margin-inline: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(243, 241, 236, 0.5);
+    box-shadow: 1.8px 1.8px 3.6px rgba(0, 0, 0, 0.07), 5px 5px 10px rgba(0, 0, 0, 0.1), 12.1px 12.1px 24.1px rgba(0, 0, 0, 0.13),
+        40px 40px 80px rgba(0, 0, 0, 0.2);
+}
+
+.swipeTable .tableHeader {
+    padding: 0.5rem 0;
+    background-color: var(--main-color);
+    color: #fee790;
+}
+
+.fixedTable {
+    z-index: 5;
+}
+
+.movingTableContainer {
+    display: block;
+    z-index: 4;
+    overflow-x: hidden;
+}
+
+.movingTableWrapper {
+    display: block;
+    --swiper-pagination-color: var(--main-color);
+}
+
+.movingTableWrapper div {
+    touch-action: none;
+}
+
+.tableTitle {
+    font-size: clamp(1.1rem, 2.25vh, 1.5rem);
+    line-height: 1;
+    color: var(--main-color);
+    padding: 1.5rem 1.5rem 0.75rem;
+    text-align: center;
+    width: 100%;
+    will-change: transform;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tableTitle svg {
+    width: 24px;
+    height: 24px;
+}
+
+.movingTable {
+    background-color: rgba(233, 213, 173, 0.6);
+}
+
+.tableLastColumn {
+    font-weight: 600;
+    background-color: rgba(230, 199, 154, 0.7);
+}
+
+.lastRow {
+    padding-bottom: 2rem;
+}
+
+.tableNavigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1.5rem 1.5rem 0.5rem;
+    margin-left: auto;
+    font-size: 1.75rem;
+    color: var(--main-color);
+    gap: 0.75rem;
+    width: 50%;
+    will-change: transform;
+}
+
+.tableNavigation svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.popup {
+    position: fixed;
+    z-index: 5000;
+    transform-origin: bottom right;
+    font-size: 1.5rem;
+    text-wrap: balance;
+    text-align: center;
+    font-weight: 600;
+    will-change: transform;
+
+    width: 60vw;
+    height: auto;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    background-color: #922c1f;
+    color: var(--color-white);
+    box-shadow: 1.8px 1.8px 3.6px rgba(0, 0, 0, 0.07), 5px 5px 10px rgba(0, 0, 0, 0.1), 12.1px 12.1px 24.1px rgba(0, 0, 0, 0.13),
+        40px 40px 80px rgba(0, 0, 0, 0.2);
+}

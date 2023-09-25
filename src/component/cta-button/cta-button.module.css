@@ -1,6 +1,7 @@
 .buttonContainer {
     width: 100%;
     display: flex;
+    pointer-events: auto;
 }
 
 .buttonWrapper {

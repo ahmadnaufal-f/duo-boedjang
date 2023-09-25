@@ -22,7 +22,6 @@
 }
 
 .bottomTextContainer {
-    pointer-events: none;
     position: fixed;
     bottom: 5vh;
     width: 100%;
@@ -30,6 +29,8 @@
 }
 
 .bottomText {
+    pointer-events: none;
+
     font-size: 1.5rem;
     transform: skewY(-3deg);
     color: var(--color-white);

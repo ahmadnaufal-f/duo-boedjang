@@ -12,6 +12,9 @@ import PackagesPage from "@/container/packages-page/packages-page"
 import { motion, AnimatePresence } from "framer-motion"
 import PackageDetailPage from "@/container/package-detail-page/package-detail-page"
 import PackageAddPage from "@/container/package-add/package-add"
+import ROIPage from "@/container/roi-page/roi-page"
+import QnAPage from "@/container/qna-page/qna-page"
+import ClosingPage from "@/container/closing-page/closing-page"
 
 const variants = {
     enter: (direction: number) => {
@@ -42,6 +45,61 @@ const swipePower = (offset: number, velocity: number) => {
 type Page = {
     name: string
     children: JSX.Element
+}
+
+const jsonData = {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    name: "Es Coklat Duo Boedjang",
+    url: "https://escoklatduoboedjang.com",
+    logo: "https://escoklatduoboedjang.com/images/logo.jpg",
+    description: "Enaknya Terngiang-ngiang, Cuannya Bikin Riang",
+    address: {
+        "@type": "PostalAddress",
+        streetAddress: "Harvest City Cluster Quince Blossom Blok QB 4, Setu",
+        addressLocality: "Bekasi",
+        addressRegion: "West Java",
+        postalCode: "17320",
+        addressCountry: "Indonenesia",
+    },
+    contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+6282330447440",
+        contactType: "marketing",
+    },
+    sameAs: ["https://www.instagram.com/escoklatduoboedjang/"],
+    makesOffer: [
+        {
+            "@type": "Offer",
+            itemOffered: {
+                "@type": "Product",
+                name: "Paket Boedjang Super",
+                description: "Paket franchise minuman coklat dan teh.",
+                image: "https://escoklatduoboedjang.com/packages.webp",
+                brand: "Es Coklat Duo Boedjang",
+                offers: {
+                    "@type": "Offer",
+                    priceCurrency: "IDR",
+                    price: "2999999",
+                },
+            },
+        },
+        {
+            "@type": "Offer",
+            itemOffered: {
+                "@type": "Product",
+                name: "Paket Boedjang Premium",
+                description: "Paket franchise minuman coklat dan teh.",
+                image: "https://escoklatduoboedjang.com/packages.webp",
+                brand: "Es Coklat Duo Boedjang",
+                offers: {
+                    "@type": "Offer",
+                    priceCurrency: "IDR",
+                    price: "7499999",
+                },
+            },
+        },
+    ],
 }
 
 export default function Home() {
@@ -82,13 +140,16 @@ export default function Home() {
     const [[page, direction], setPage] = useState([0, 0])
 
     const pages: Page[] = [
-        { name: "welcome page", children: <WelcomePage activeIndex={page} /> },
+        { name: "welcome page", children: <WelcomePage activeIndex={page} direction={direction} /> },
         { name: "about page", children: <AboutPage /> },
         { name: "product page", children: <ProductPage activeIndex={page} /> },
         { name: "advantage page", children: <AdvantagePage activeIndex={page} direction={direction} /> },
         { name: "packages page", children: <PackagesPage activeIndex={page} direction={direction} /> },
         { name: "package detail page", children: <PackageDetailPage activeIndex={page} direction={direction} /> },
         { name: "package add page", children: <PackageAddPage activeIndex={page} direction={direction} /> },
+        { name: "return of investment page", children: <ROIPage activeIndex={page} direction={direction} /> },
+        { name: "qna page", children: <QnAPage activeIndex={page} direction={direction} /> },
+        { name: "closing page", children: <ClosingPage activeIndex={page} /> },
     ]
 
     const paginate = (newDirection: number) => {
@@ -98,6 +159,8 @@ export default function Home() {
 
     return (
         <main className={styles.main} id={"page-container"} data-active-index={page} data-direction={direction}>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonData) }} />
+
             <AnimatePresence initial={false} custom={direction}>
                 {page <= 2 ? <Decoration activeIndex={page} key={"decoration"} /> : null}
                 {page <= 2 ? <LottieItems activeIndex={page} key={"lottie"} /> : null}

@@ -9,6 +9,7 @@ config.autoAddCss = false
 export const metadata: Metadata = {
     title: "Es Coklat Duo Boedjang",
     description: "Enaknya Terngiang-ngiang, Cuannya Bikin Riang",
+    keywords: "franchise, franchise minuman, franchise minuman coklat, franchise es coklat, franchise es teh, bisnis cuan",
 }
 
 const Adigiana = localFont({ src: "/../../public/fonts/AdigianaUI.ttf" })

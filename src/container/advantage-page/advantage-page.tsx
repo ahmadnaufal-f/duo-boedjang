@@ -98,7 +98,6 @@ export default function AdvantagePage({ activeIndex, direction }: Props) {
                     </div>
                 ) : null}
             </AnimatePresence>
-            <CtaButton text={"Hubungi Admin"} activeIndex={activeIndex} />
         </div>
     )
 }
