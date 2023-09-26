@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     pointer-events: auto;
+    z-index: 500;
 }
 
 .buttonWrapper {

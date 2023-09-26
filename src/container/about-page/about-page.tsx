@@ -1,5 +1,6 @@
 "use client"
 
+import CtaButton from "@/component/cta-button/cta-button"
 import styles from "./about-page.module.css"
 import { Concert_One } from "next/font/google"
 
@@ -25,6 +26,7 @@ export default function AboutPage() {
                     <p>Dengan begitu, Es Coklat Duo Boedjang dapat dinikmati oleh berbagai kalangan dan mampu menjangkau pasar yang lebih luas.</p>
                 </div>
             </div>
+            <CtaButton text="Tanyakan Lebih Lanjut" activeIndex={1} />
         </div>
     )
 }

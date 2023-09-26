@@ -23,9 +23,9 @@ const dosis = Dosis({ subsets: ["latin"] })
 
 export default function ClosingPage({ activeIndex }: Props) {
     return (
-        <div className={`${styles.closingPage} virtual-page`} data-index={9}>
+        <div className={`${styles.closingPage} virtual-page`} data-index={11}>
             <AnimatePresence>
-                {activeIndex === 9 ? (
+                {activeIndex === 11 ? (
                     <div key="closing-wrapper">
                         <motion.div
                             className={styles.logoWrapper}
@@ -34,7 +34,7 @@ export default function ClosingPage({ activeIndex }: Props) {
                             exit={{ opacity: 0, x: -30 }}
                             transition={{ ...springTransition, delay: 0.5 }}
                         >
-                            <Image src={"/images/logo.svg"} alt={"Logo Es Coklat Duo Boedjang"} width={150} height={150} />
+                            <Image src={"/images/logo.webp"} alt={"Logo Es Coklat Duo Boedjang"} width={113} height={140} className={styles.logo} />
                         </motion.div>
                         <motion.div
                             className={styles.closingTextWrapper}
@@ -59,11 +59,37 @@ export default function ClosingPage({ activeIndex }: Props) {
                             <CtaButton text={"Hubungi Admin"} activeIndex={activeIndex} />
                         </motion.div>
                         <motion.div
-                            className={styles.warningWrapper}
+                            className={styles.bankWrapper}
                             initial={{ opacity: 0, x: 30 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -30 }}
                             transition={{ ...springTransition, delay: 0.8 }}
+                        >
+                            <div className={`${concertOne.className} ${styles.bank}`}>
+                                <p>Nomor Rekening</p>
+                                <ul className={styles.bankList}>
+                                    <li>
+                                        <div>
+                                            BCA<span>:</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            Mandiri<span>:</span>
+                                        </div>
+                                    </li>
+                                    <p>5020352231</p>
+                                    <p>102-00-1160214-8</p>
+                                </ul>
+                                <p>An. CV Kulinerindo Jaya Sentosa</p>
+                            </div>
+                        </motion.div>
+                        <motion.div
+                            className={styles.warningWrapper}
+                            initial={{ opacity: 0, x: 30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -30 }}
+                            transition={{ ...springTransition, delay: 0.9 }}
                         >
                             <div className={`${concertOne.className}`}>
                                 Hati-hati penipuan mengatasnamakan Es Coklat Duo Boedjang maupun CV Kulinerindo Jaya Sentosa!
@@ -80,7 +106,12 @@ export default function ClosingPage({ activeIndex }: Props) {
                     </span>
                 </p>
                 <p className={`${dosis.className} ${styles.footerText}`}>
-                    <Link href={"https://wa.me/6287864648977"} target="_blank">
+                    <Link
+                        href={
+                            "https://wa.me/6287864648977?text=Halo%20kak%21%20Saya%20tertarik%20dengan%20franchise%20Es%20Coklat%20Duo%20Boedjang%20dan%20ingin%20tanya-tanya%20lebih%20lanjut."
+                        }
+                        target="_blank"
+                    >
                         <PiWhatsappLogoBold />
                         0878-6464-8977
                     </Link>

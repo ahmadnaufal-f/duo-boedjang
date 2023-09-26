@@ -2,6 +2,7 @@
 
 import styles from "./page.module.css"
 import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import Decoration from "@/component/decoration/decoration"
 import LottieItems from "@/component/lottie-items/lottie-items"
 import WelcomePage from "@/container/welcome-page/welcome-page"
@@ -9,12 +10,12 @@ import AboutPage from "@/container/about-page/about-page"
 import ProductPage from "@/container/product-page/product-page"
 import AdvantagePage from "@/container/advantage-page/advantage-page"
 import PackagesPage from "@/container/packages-page/packages-page"
-import { motion, AnimatePresence } from "framer-motion"
 import PackageDetailPage from "@/container/package-detail-page/package-detail-page"
 import PackageAddPage from "@/container/package-add/package-add"
 import ROIPage from "@/container/roi-page/roi-page"
 import QnAPage from "@/container/qna-page/qna-page"
 import ClosingPage from "@/container/closing-page/closing-page"
+import PackagesDescPage from "@/container/package-desc-page/package-desc-page"
 
 const variants = {
     enter: (direction: number) => {
@@ -145,6 +146,8 @@ export default function Home() {
         { name: "product page", children: <ProductPage activeIndex={page} /> },
         { name: "advantage page", children: <AdvantagePage activeIndex={page} direction={direction} /> },
         { name: "packages page", children: <PackagesPage activeIndex={page} direction={direction} /> },
+        { name: "paket boedjang super page", children: <PackagesDescPage activeIndex={page} direction={direction} type={"super"} index={5} /> },
+        { name: "paket boedjang premium page", children: <PackagesDescPage activeIndex={page} direction={direction} type={"premium"} index={6} /> },
         { name: "package detail page", children: <PackageDetailPage activeIndex={page} direction={direction} /> },
         { name: "package add page", children: <PackageAddPage activeIndex={page} direction={direction} /> },
         { name: "return of investment page", children: <ROIPage activeIndex={page} direction={direction} /> },
@@ -162,8 +165,6 @@ export default function Home() {
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonData) }} />
 
             <AnimatePresence initial={false} custom={direction}>
-                {page <= 2 ? <Decoration activeIndex={page} key={"decoration"} /> : null}
-                {page <= 2 ? <LottieItems activeIndex={page} key={"lottie"} /> : null}
                 <motion.div
                     key={pages[page].name}
                     custom={direction}
@@ -191,6 +192,8 @@ export default function Home() {
                 >
                     {pages[page].children}
                 </motion.div>
+                {page <= 2 ? <Decoration activeIndex={page} direction={direction} key={"decoration"} /> : null}
+                {page <= 2 ? <LottieItems activeIndex={page} key={"lottie"} /> : null}
             </AnimatePresence>
         </main>
     )

@@ -1,0 +1,53 @@
+.priceTag {
+    margin: 0.5rem auto;
+    text-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    --red: rgb(177, 17, 6);
+}
+
+.priceBefore {
+    color: var(--main-color);
+    font-size: 1rem;
+    text-decoration: line-through;
+    font-weight: 800;
+    letter-spacing: 0;
+}
+
+.priceAfter {
+    position: relative;
+    margin-block: 1.25rem;
+    padding: 1rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    z-index: 5;
+    isolation: isolate;
+    color: #fff;
+}
+
+.priceAfter::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 84px;
+    width: 84px;
+    transform: translate(-50%, -50%);
+    background-color: var(--red);
+    outline: solid 5px #fff;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.priceRp {
+    position: absolute;
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--red);
+    top: -16px;
+    left: -16px;
+    letter-spacing: 0;
+    text-shadow: 0 0 1px var(--color-white), 0 0 3px var(--color-white), 0 0 5px var(--color-white), 0 0 6px var(--color-white);
+}

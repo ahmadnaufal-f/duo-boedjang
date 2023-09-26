@@ -7,6 +7,7 @@ import { FaCheck } from "react-icons/fa"
 import { motion, Transition, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import CtaButton from "@/component/cta-button/cta-button"
+import PriceTag from "@/component/price-tag/price-tag"
 
 const springTransition: Transition = {
     type: "spring",
@@ -27,14 +28,17 @@ const additionalPackages: string[] = ["Dispenser 30L", "Gelas Takar", "Botol Pla
 
 export default function PackageAddPage({ activeIndex, direction }: Props) {
     return (
-        <div className={`${styles.packagesPage} virtual-page`} data-index={6}>
+        <div className={`${styles.packagesPage} virtual-page`} data-index={8}>
             <div className={styles.titleWrapper}>
                 <h1 className={styles.titleText}>
-                    Hanya Tambah<span className={`${exo.className} ${styles.titleSpan}`}>Rp. 499rb</span>
+                    Hanya Tambah
+                    <span className={styles.titleSpan}>
+                        <PriceTag priceAfter="499rb" />
+                    </span>
                 </h1>
                 <h1 className={styles.subtitleText}>Dapatkan Paket Penjualan Es Teh!</h1>
             </div>
-            {activeIndex === 6 ? (
+            {activeIndex === 8 ? (
                 <>
                     <motion.div
                         className={styles.imageWrapper}
@@ -43,7 +47,7 @@ export default function PackageAddPage({ activeIndex, direction }: Props) {
                         exit={{ opacity: 0, x: -30 * direction }}
                         transition={{ ...springTransition, delay: 0.5 }}
                     >
-                        <Image src="/images/packagesplus.webp" alt="paket penjualan teh" width={458} height={678} />
+                        <Image src="/images/packagesplus.webp" alt="paket penjualan teh" width={446} height={678} />
                     </motion.div>
                     <motion.div
                         className={styles.descriptionWrapper}
@@ -61,7 +65,7 @@ export default function PackageAddPage({ activeIndex, direction }: Props) {
                         ))}
                         <Image src="/images/logo.svg" alt="logo es coklat duo boedjang" className={styles.logoUnderlay} width={210} height={210} />
                     </motion.div>
-                    <CtaButton text="Hubungi Admin" activeIndex={activeIndex} />
+                    <CtaButton text="Ambil Promonya Sekarang" activeIndex={activeIndex} />
                 </>
             ) : null}
         </div>

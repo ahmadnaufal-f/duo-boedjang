@@ -1,11 +1,8 @@
 "use client"
 
 import styles from "./welcome-page.module.css"
-import Decoration from "@/component/decoration/decoration"
 import Image from "next/image"
 import { motion, Transition } from "framer-motion"
-import LottieItems from "@/component/lottie-items/lottie-items"
-import Toast from "@/component/toast/toast"
 
 const springTransition: Transition = {
     type: "spring",
@@ -33,11 +30,10 @@ export default function WelcomePage({ activeIndex, direction }: Props) {
                         <div className={styles.titleText}>
                             <h1>FRANCHISE ES COKLAT</h1>
                             <h1>DUO BOEDJANG</h1>
-                            <Image src={"/images/logo.svg"} alt={"Logo Es Coklat Duo Boedjang"} width={150} height={150} />
+                            <Image src={"/images/logo.webp"} alt={"Logo Es Coklat Duo Boedjang"} width={121} height={150} className={styles.logo} />
                         </div>
                     </motion.div>
                 ) : null}
-                <Toast text={"Hai! Silahkan swipe ke atas untuk mencari tahu lebih lanjut"} direction={direction} />
             </div>
         </>
     )

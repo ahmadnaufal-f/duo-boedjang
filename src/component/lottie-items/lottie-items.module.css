@@ -13,12 +13,13 @@
 }
 
 .lottieWrapper[data-active-index="2"] {
-    padding: 1rem 0 7rem;
+    padding: 1rem 0 3rem;
 }
 
 @media (max-height: 720px) {
     .lottieWrapper[data-active-index="2"] {
-        padding: 1rem 0 2rem;
+        padding: 1rem 0 0;
+        scale: 0.9;
     }
 }
 

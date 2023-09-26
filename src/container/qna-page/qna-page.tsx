@@ -22,13 +22,13 @@ const dosis = Dosis({ subsets: ["latin"] })
 
 export default function QnAPage({ activeIndex, direction }: Props) {
     return (
-        <div className={`${styles.qnaPage} virtual-page`} data-index={8}>
+        <div className={`${styles.qnaPage} virtual-page`} data-index={10}>
             <motion.div className={styles.titleWrapper}>
                 <h1 className={styles.titleText}>Anda Bertanya,</h1>
                 <h1 className={styles.titleText}>Kami Menjawab!</h1>
             </motion.div>
             <AnimatePresence>
-                {activeIndex === 8 ? (
+                {activeIndex === 10 ? (
                     <div className={styles.qnaWrapper} key="advantage-wrapper">
                         {qnaList.map(({ question, answer }, index) => (
                             <motion.div

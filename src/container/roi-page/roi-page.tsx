@@ -66,12 +66,12 @@ export default function ROIPage({ activeIndex, direction }: Props) {
     }, [activeCol])
 
     return (
-        <div className={`${styles.packagesPage} virtual-page`} data-index={7}>
+        <div className={`${styles.packagesPage} virtual-page`} data-index={9}>
             <PopupDialog isOpen={isOpen} setIsOpen={setIsOpen} />
             <div className={styles.titleWrapper}>
                 <h1 className={styles.titleText}>Return of Investment</h1>
             </div>
-            {activeIndex === 7 ? (
+            {activeIndex === 9 ? (
                 <>
                     <motion.div
                         className={`${styles.table} ${exo.className}`}
@@ -206,7 +206,7 @@ export default function ROIPage({ activeIndex, direction }: Props) {
                     </motion.div>
                 </>
             ) : null}
-            <CtaButton text="Tanya lebih banyak" activeIndex={activeIndex} />
+            <CtaButton text="Ambil Cuannya Sekarang" activeIndex={activeIndex} />
         </div>
     )
 }

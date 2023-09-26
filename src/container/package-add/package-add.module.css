@@ -7,20 +7,22 @@
     font-size: 1.35rem;
     color: var(--main-color);
     text-align: center;
-    padding: 2rem 0 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    gap: 1rem;
+    text-shadow: 0 0 1px var(--color-white), 0 0 3px var(--color-white), 0 0 5px var(--color-white), 0 0 6px var(--color-white);
 }
 
-.titleSpan {
-    font-size: 1.35rem;
-    padding: 0.25rem 0.5rem;
-    background-color: #851e1a;
-    margin-inline-start: 0.5rem;
-    border-radius: 0.5rem;
-    color: #fee790;
+.titleWrapper h1 span {
+    height: 100%;
 }
 
 .titleWrapper .subtitleText {
-    padding: 0.5rem 2rem;
+    padding: 0 2rem 0.5rem;
+    margin-block-start: -1rem;
     text-wrap: balance;
     font-size: 1.5rem;
     color: var(--stop-color2);
@@ -29,7 +31,7 @@
 .imageWrapper {
     width: 100%;
     height: calc(100% - 5rem);
-    max-height: 35vh;
+    max-height: 30vh;
     position: relative;
     padding: 0 4rem 1rem;
     will-change: transform;
@@ -68,17 +70,18 @@
     box-shadow: 1.8px 1.8px 3.6px rgba(0, 0, 0, 0.07), 5px 5px 10px rgba(0, 0, 0, 0.1), 12.1px 12.1px 24.1px rgba(0, 0, 0, 0.13),
         40px 40px 80px rgba(0, 0, 0, 0.2);
     will-change: transform;
+    font-size: 1rem;
 }
 
 .descriptionTitle {
     width: 100%;
     background-color: var(--color-title);
     color: rgb(243, 237, 225);
-    font-size: 1.1rem;
+    font-size: 1rem;
     border-radius: 0.5rem;
     margin-block-end: 0.5rem;
-    letter-spacing: 1px;
-    padding-block: 0.5rem;
+    letter-spacing: 0.5px;
+    padding-block: 0.25rem;
     box-shadow: 1.8px 1.8px 3.6px rgba(0, 0, 0, 0.07), 5px 5px 10px rgba(0, 0, 0, 0.1), 12.1px 12.1px 24.1px rgba(0, 0, 0, 0.13),
         40px 40px 80px rgba(0, 0, 0, 0.2);
 }

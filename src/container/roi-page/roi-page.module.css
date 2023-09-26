@@ -8,6 +8,7 @@
     color: var(--main-color);
     text-align: center;
     padding: 1rem 0 0.5rem;
+    text-shadow: 0 0 1px var(--color-white), 0 0 3px var(--color-white), 0 0 5px var(--color-white), 0 0 6px var(--color-white);
 }
 
 .table {
@@ -82,7 +83,7 @@
 
 .swipeTable {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.35fr;
     width: calc(100vw - 2rem);
     margin: 0 auto 0.25rem;
     overflow: hidden;

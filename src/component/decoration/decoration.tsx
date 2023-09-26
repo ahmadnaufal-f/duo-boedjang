@@ -3,6 +3,7 @@ import Image from "next/image"
 import styles from "./decoration.module.css"
 import localFont from "next/font/local"
 import CtaButton from "../cta-button/cta-button"
+import Toast from "../toast/toast"
 
 const milkyHoney = localFont({ src: "../../../public/fonts/MilkyHoney.ttf" })
 
@@ -14,9 +15,10 @@ const springTransition: Transition = {
 
 type Props = {
     activeIndex: number
+    direction: number
 }
 
-export default function Decoration({ activeIndex }: Props) {
+export default function Decoration({ activeIndex, direction }: Props) {
     return (
         <>
             {activeIndex === 2 && (
@@ -38,7 +40,9 @@ export default function Decoration({ activeIndex }: Props) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 75 }}
             >
-                <CtaButton text={activeIndex === 2 ? "Tanyakan Lebih Lanjut" : "Ambil Promonya Sekarang!"} activeIndex={activeIndex} />
+                {activeIndex !== 1 && (
+                    <CtaButton text={activeIndex !== 0 ? "Tanyakan Lebih Lanjut" : "Ambil Promonya Sekarang!"} activeIndex={activeIndex} />
+                )}
                 <motion.p layout className={`${styles.bottomText} ${milkyHoney.className}`}>
                     Enaknya Terngiang-ngiang
                 </motion.p>
@@ -55,6 +59,7 @@ export default function Decoration({ activeIndex }: Props) {
             >
                 <Image src="/images/splash-bottom.webp" alt="Chocolate Drink Splash" width={412} height={163} />
             </motion.div>
+            {activeIndex === 0 && <Toast text={"Hai! Silahkan swipe ke atas untuk mencari tahu lebih lanjut"} direction={direction} />}
         </>
     )
 }

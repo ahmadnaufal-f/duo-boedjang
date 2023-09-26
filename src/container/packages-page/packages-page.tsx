@@ -30,12 +30,12 @@ const packages: Package[] = [
     {
         title: "Paket Boedjang Super",
         priceBefore: "Rp 7.000.000",
-        priceAfter: "Rp 2.999.999",
+        priceAfter: "Rp 2.999.000",
     },
     {
         title: "Paket Boedjang Premium",
         priceBefore: "Rp 16.400.000",
-        priceAfter: "Rp 7.499.999",
+        priceAfter: "Rp 7.499.000",
     },
 ]
 
@@ -73,7 +73,7 @@ export default function PackagesPage({ activeIndex, direction }: Props) {
                 exit={{ opacity: 0, x: -30 * direction }}
                 transition={{ ...springTransition, delay: 0.7 }}
             >
-                <Image src="/images/packages.webp" alt="paket lengkap franchise es coklat duo boedjang" width={957} height={826} />
+                <Image src="/images/package-premium.webp" alt="paket lengkap franchise es coklat duo boedjang" width={941} height={761} />
             </motion.div>
             <motion.div
                 className={`${milkyHoney.className} ${styles.bottomText}`}

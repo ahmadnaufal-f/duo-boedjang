@@ -29,7 +29,7 @@ export default function ProductPage({ activeIndex }: Props) {
             if (lottieContainer) {
                 const rect = lottieContainer.getBoundingClientRect()
                 setTop(rect.top)
-                setLeft(rect.left + 60)
+                setLeft(rect.left + 45)
                 setRight(window.innerWidth - (rect.left + rect.width - 60))
                 setIsMenuShowing(activeIndex === 2)
             }
@@ -46,7 +46,7 @@ export default function ProductPage({ activeIndex }: Props) {
                 <>
                     <motion.div
                         className={styles.firstMenu}
-                        style={{ top: `${top - 40}px`, left: `${left}px` }}
+                        style={{ top: `${top - 60}px`, left: `${left}px` }}
                         initial={{ x: 30, y: 30, scale: 0 }}
                         animate={{ x: 0, y: 0, scale: 1 }}
                         transition={{ ...springTransition }}
@@ -56,7 +56,7 @@ export default function ProductPage({ activeIndex }: Props) {
                     </motion.div>
                     <motion.div
                         className={styles.secondMenu}
-                        style={{ top: `${top}px`, right: `${right}px` }}
+                        style={{ top: `${top - 15}px`, right: `${right - 10}px` }}
                         initial={{ x: -30, y: 30, scale: 0 }}
                         animate={{ x: 0, y: 0, scale: 1 }}
                         transition={{ ...springTransition }}
