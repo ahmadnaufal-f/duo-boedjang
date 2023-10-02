@@ -140,6 +140,7 @@
 .tableTitle svg {
     width: 24px;
     height: 24px;
+    cursor: pointer;
 }
 
 .movingTable {
@@ -193,4 +194,57 @@
     color: var(--color-white);
     box-shadow: 1.8px 1.8px 3.6px rgba(0, 0, 0, 0.07), 5px 5px 10px rgba(0, 0, 0, 0.1), 12.1px 12.1px 24.1px rgba(0, 0, 0, 0.13),
         40px 40px 80px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px) {
+    .titleWrapper h1 {
+        font-size: 2rem;
+        margin-block-start: 2rem;
+    }
+
+    .table {
+        width: 100%;
+        max-width: 768px;
+        margin: 1rem auto;
+    }
+
+    .tableColumnOne {
+        text-align: center;
+    }
+
+    .tableTitle,
+    .swipeTable {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .tableTitle {
+        font-size: 1.75rem;
+    }
+
+    .swipeTable {
+        grid-template-columns: 1fr 4fr;
+        margin-block-end: 3rem;
+    }
+
+    .tableNavigation {
+        display: none;
+    }
+
+    .lastRow {
+        padding-bottom: 0.45rem;
+    }
+
+    .swipeTable .tableHeader {
+        padding-block: 1rem;
+    }
+
+    .swipeTable .tableRow {
+        padding-block: 0.6rem;
+    }
+
+    .swipeTable .lastRow {
+        padding-block-end: 1rem;
+    }
 }

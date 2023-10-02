@@ -36,7 +36,7 @@ export default function PackageAddPage({ activeIndex, direction }: Props) {
                         <PriceTag priceAfter="499rb" />
                     </span>
                 </h1>
-                <h1 className={styles.subtitleText}>Dapatkan Paket Penjualan Es Teh!</h1>
+                <h1 className={styles.subtitleText}>Dapatkan Paket Jualan Es Teh!</h1>
             </div>
             {activeIndex === 8 ? (
                 <>
@@ -47,7 +47,7 @@ export default function PackageAddPage({ activeIndex, direction }: Props) {
                         exit={{ opacity: 0, x: -30 * direction }}
                         transition={{ ...springTransition, delay: 0.5 }}
                     >
-                        <Image src="/images/packagesplus.webp" alt="paket penjualan teh" width={446} height={678} />
+                        <Image src="/images/packagesplus.webp" alt="paket jualan teh" width={446} height={678} />
                     </motion.div>
                     <motion.div
                         className={styles.descriptionWrapper}

@@ -36,6 +36,7 @@ export default function ROIPage({ activeIndex, direction }: Props) {
     const [top, setTop] = useState<number>(0)
     const [right, setRight] = useState<number>(0)
     const [isOpen, setIsOpen] = useState<boolean>(false)
+    const [isDesktop, setIsDesktop] = useState<boolean>(false)
     const scrollerRef = useRef<HTMLDivElement>(null)
 
     const slides = tableData.map((data, index) => (
@@ -65,9 +66,13 @@ export default function ROIPage({ activeIndex, direction }: Props) {
         }
     }, [activeCol])
 
+    useEffect(() => {
+        setIsDesktop(window.innerWidth > 768)
+    }, [])
+
     return (
         <div className={`${styles.packagesPage} virtual-page`} data-index={9}>
-            <PopupDialog isOpen={isOpen} setIsOpen={setIsOpen} />
+            <PopupDialog isOpen={isOpen} setIsOpen={setIsOpen} isDesktop={isDesktop} />
             <div className={styles.titleWrapper}>
                 <h1 className={styles.titleText}>Return of Investment</h1>
             </div>
@@ -128,11 +133,11 @@ export default function ROIPage({ activeIndex, direction }: Props) {
                         </div>
                         <div className={`${styles.tableRowSummary} ${styles.tableFirstRow} ${styles.tableRow}`}>
                             <span>Rp</span>
-                            <span>3.493</span>
+                            <span>4.507</span>
                         </div>
                         <div className={`${styles.tableRowSummary} ${styles.tableFirstRow} ${styles.tableRow}`}>
                             <span>Rp</span>
-                            <span>5.555</span>
+                            <span>4.448</span>
                         </div>
                         <div className={`${styles.tableRowSummary} ${styles.tableLastRow} ${styles.tableRow}`}>56%</div>
                         <div className={`${styles.tableRowSummary} ${styles.tableLastRow} ${styles.tableRow}`}>44%</div>

@@ -94,3 +94,30 @@
     font-weight: 700;
     margin-block-start: 0.5rem;
 }
+
+@media (min-width: 768px) {
+    .titleWrapper h1 {
+        font-size: 2rem;
+    }
+
+    .table {
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 840px;
+        margin: 0.5rem auto;
+        grid-template-columns: 1.2fr 1fr 1fr;
+    }
+
+    .tableRowItem {
+        margin-block-start: 0;
+        padding-block: 0.3rem;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .tableHeaderItem,
+    .tableFooterItem {
+        font-size: 1.1rem;
+        padding-block: 0.35rem;
+    }
+}

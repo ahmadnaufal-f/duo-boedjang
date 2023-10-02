@@ -1,7 +1,7 @@
 "use client"
 
 import styles from "./page.module.css"
-import { useState } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Decoration from "@/component/decoration/decoration"
 import LottieItems from "@/component/lottie-items/lottie-items"
@@ -16,6 +16,7 @@ import ROIPage from "@/container/roi-page/roi-page"
 import QnAPage from "@/container/qna-page/qna-page"
 import ClosingPage from "@/container/closing-page/closing-page"
 import PackagesDescPage from "@/container/package-desc-page/package-desc-page"
+import Navigator from "@/component/navigator/navigator"
 
 const variants = {
     enter: (direction: number) => {
@@ -43,7 +44,7 @@ const swipePower = (offset: number, velocity: number) => {
     return Math.abs(offset) * velocity
 }
 
-type Page = {
+export type Page = {
     name: string
     children: JSX.Element
 }
@@ -139,26 +140,57 @@ export default function Home() {
     //     }
     // }, [])
     const [[page, direction], setPage] = useState([0, 0])
+    const [isDesktop, setIsDesktop] = useState<boolean>(false)
 
     const pages: Page[] = [
-        { name: "welcome page", children: <WelcomePage activeIndex={page} direction={direction} /> },
-        { name: "about page", children: <AboutPage /> },
-        { name: "product page", children: <ProductPage activeIndex={page} /> },
-        { name: "advantage page", children: <AdvantagePage activeIndex={page} direction={direction} /> },
-        { name: "packages page", children: <PackagesPage activeIndex={page} direction={direction} /> },
-        { name: "paket boedjang super page", children: <PackagesDescPage activeIndex={page} direction={direction} type={"super"} index={5} /> },
-        { name: "paket boedjang premium page", children: <PackagesDescPage activeIndex={page} direction={direction} type={"premium"} index={6} /> },
-        { name: "package detail page", children: <PackageDetailPage activeIndex={page} direction={direction} /> },
-        { name: "package add page", children: <PackageAddPage activeIndex={page} direction={direction} /> },
-        { name: "return of investment page", children: <ROIPage activeIndex={page} direction={direction} /> },
-        { name: "qna page", children: <QnAPage activeIndex={page} direction={direction} /> },
-        { name: "closing page", children: <ClosingPage activeIndex={page} /> },
+        { name: "Cover", children: <WelcomePage activeIndex={page} direction={direction} /> },
+        { name: "Tentang", children: <AboutPage /> },
+        { name: "Produk Kami", children: <ProductPage activeIndex={page} /> },
+        { name: "Keunggulan Kami", children: <AdvantagePage activeIndex={page} direction={direction} /> },
+        { name: "Pilihan Paket", children: <PackagesPage activeIndex={page} direction={direction} /> },
+        { name: "Paket Boedjang Super", children: <PackagesDescPage activeIndex={page} direction={direction} type={"super"} index={5} /> },
+        { name: "Paket Boedjang Premium", children: <PackagesDescPage activeIndex={page} direction={direction} type={"premium"} index={6} /> },
+        { name: "Perbandingan Paket", children: <PackageDetailPage activeIndex={page} direction={direction} /> },
+        { name: "Tambahan Paket", children: <PackageAddPage activeIndex={page} direction={direction} /> },
+        { name: "Perhitungan ROI", children: <ROIPage activeIndex={page} direction={direction} /> },
+        { name: "Tanya Jawab", children: <QnAPage activeIndex={page} direction={direction} /> },
+        { name: "Penutup", children: <ClosingPage activeIndex={page} /> },
     ]
 
-    const paginate = (newDirection: number) => {
-        if (page + newDirection < 0 || page + newDirection > pages.length - 1) return
-        setPage([page + newDirection, newDirection])
-    }
+    const paginate = useCallback(
+        (newDirection: number) => {
+            if (page + newDirection < 0 || page + newDirection > pages.length - 1) return
+            setPage([page + newDirection, newDirection])
+        },
+        [page, pages.length]
+    )
+
+    useEffect(() => {
+        const handleScroll = (event: WheelEvent) => {
+            // Detect scroll direction (positive for down, negative for up)
+            const deltaY = event.deltaY
+
+            if (deltaY > 0) {
+                // Scroll down
+                paginate(1)
+            } else if (deltaY < 0) {
+                // Scroll up
+                paginate(-1)
+            }
+        }
+
+        // Add the scroll event listener when the component mounts
+        window.addEventListener("wheel", handleScroll)
+
+        // Remove the event listener when the component unmounts
+        return () => {
+            window.removeEventListener("wheel", handleScroll)
+        }
+    }, [paginate])
+
+    useEffect(() => {
+        setIsDesktop(window.innerWidth > 768)
+    }, [])
 
     return (
         <main className={styles.main} id={"page-container"} data-active-index={page} data-direction={direction}>
@@ -192,9 +224,11 @@ export default function Home() {
                 >
                     {pages[page].children}
                 </motion.div>
-                {page <= 2 ? <Decoration activeIndex={page} direction={direction} key={"decoration"} /> : null}
+                {page <= 2 ? <Decoration activeIndex={page} direction={direction} key={"decoration"} isDesktop={isDesktop} /> : null}
                 {page <= 2 ? <LottieItems activeIndex={page} key={"lottie"} /> : null}
             </AnimatePresence>
+
+            <Navigator page={page} setPage={setPage} pages={pages} />
         </main>
     )
 }

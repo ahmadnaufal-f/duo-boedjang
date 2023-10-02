@@ -6,6 +6,7 @@ import { motion, AnimatePresence, Transition } from "framer-motion"
 type Props = {
     isOpen: boolean
     setIsOpen: (isOpen: boolean) => void
+    isDesktop: boolean
 }
 
 const springTransition: Transition = {
@@ -16,11 +17,7 @@ const springTransition: Transition = {
 
 const concertOne = Concert_One({ weight: ["400"], subsets: ["latin"] })
 
-export default function PopupDialog({ isOpen, setIsOpen }: Props) {
-    const openDialog = () => {
-        setIsOpen(true)
-    }
-
+export default function PopupDialog({ isOpen, setIsOpen, isDesktop }: Props) {
     const closeDialog = () => {
         setIsOpen(false)
     }
@@ -62,7 +59,7 @@ export default function PopupDialog({ isOpen, setIsOpen }: Props) {
                                         <li>Asumsi Perbandingan Penjualan 14oz dan 18oz (50:50)</li>
                                         <li>Belum termasuk biaya sewa lokasi dan gaji karyawan</li>
                                         <li>Jumlah hari kerja per bulan: 26 hari</li>
-                                        <li>Tekan tombol next di bawah tabel untuk melihat hitungan balik modal</li>
+                                        {!isDesktop ? <li>Tekan tombol next di bawah tabel untuk melihat hitungan balik modal</li> : null}
                                     </ul>
                                 </div>
                             </motion.div>

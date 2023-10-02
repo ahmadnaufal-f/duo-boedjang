@@ -61,8 +61,10 @@ export default function PackagesDescPage({ activeIndex, direction, type, index }
                 exit={{ opacity: 0, x: -30 * direction }}
                 transition={{ ...springTransition, delay: 0.5 }}
             >
-                <div className={styles.specialOffer}>SPECIAL</div>
-                <div className={styles.specialOffer}>OFFER</div>
+                <div className={styles.specialOfferContainer}>
+                    <div className={styles.specialOffer}>SPECIAL</div>
+                    <div className={styles.specialOffer}>OFFER</div>
+                </div>
                 <PriceTag priceBefore={packages[type].priceBefore} priceAfter={packages[type].priceAfter} />
             </motion.div>
             <motion.div

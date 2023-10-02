@@ -45,7 +45,8 @@ export default function ClosingPage({ activeIndex }: Props) {
                         >
                             <div className={styles.closingText}>
                                 <h1>TUNGGU APA LAGI?</h1>
-                                <h1>MARI BERCUAN RIANG BERSAMA</h1>
+                                <h1>MARI BERCUAN RIANG</h1>
+                                <h1>BERSAMA</h1>
                                 <h1>ES COKLAT DUO BOEDJANG!</h1>
                             </div>
                         </motion.div>

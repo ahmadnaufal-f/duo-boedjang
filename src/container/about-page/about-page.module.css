@@ -36,3 +36,20 @@
 .descriptionWrapper p:last-child {
     margin-block-end: 0;
 }
+
+@media (min-width: 768px) {
+    .aboutUsText {
+        font-size: 2rem;
+        margin-block-end: 3rem;
+    }
+
+    .descriptionWrapper {
+        padding: 2rem;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .descriptionWrapper p {
+        font-size: 1.25rem;
+    }
+}

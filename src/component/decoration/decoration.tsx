@@ -16,9 +16,10 @@ const springTransition: Transition = {
 type Props = {
     activeIndex: number
     direction: number
+    isDesktop: boolean
 }
 
-export default function Decoration({ activeIndex, direction }: Props) {
+export default function Decoration({ activeIndex, direction, isDesktop }: Props) {
     return (
         <>
             {activeIndex === 2 && (
@@ -59,7 +60,12 @@ export default function Decoration({ activeIndex, direction }: Props) {
             >
                 <Image src="/images/splash-bottom.webp" alt="Chocolate Drink Splash" width={412} height={163} />
             </motion.div>
-            {activeIndex === 0 && <Toast text={"Hai! Silahkan swipe ke atas untuk mencari tahu lebih lanjut"} direction={direction} />}
+            {activeIndex === 0 && (
+                <Toast
+                    text={`Hai! Silahkan ${isDesktop ? "scroll ke bawah" : "swipe ke atas"} untuk mencari tahu lebih lanjut`}
+                    direction={direction}
+                />
+            )}
         </>
     )
 }

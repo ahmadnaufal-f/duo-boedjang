@@ -42,3 +42,22 @@
 .bottomTextContainer[data-active-index="2"] {
     bottom: 10vh;
 }
+
+@media (min-width: 768px) {
+    .chocolateSplash {
+        display: none;
+    }
+
+    .chocolateSplashBottom {
+        display: none;
+    }
+
+    .bottomTextContainer {
+        bottom: 7.5vh;
+    }
+
+    .bottomText {
+        font-size: 2rem;
+        margin-block-start: 1rem;
+    }
+}

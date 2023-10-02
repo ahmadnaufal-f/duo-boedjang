@@ -5,7 +5,8 @@ import { motion, Transition, AnimatePresence } from "framer-motion"
 import { Exo } from "next/font/google"
 import localFont from "next/font/local"
 import Image from "next/image"
-import { BiSolidChevronsUp } from "react-icons/bi"
+import { BiSolidChevronsUp, BiSolidChevronsDown } from "react-icons/bi"
+import { useState, useEffect } from "react"
 
 const milkyHoney = localFont({ src: "../../../public/fonts/MilkyHoney.ttf" })
 
@@ -41,6 +42,21 @@ const packages: Package[] = [
 
 const exo = Exo({ weight: ["400", "800"], subsets: ["latin"] })
 export default function PackagesPage({ activeIndex, direction }: Props) {
+    const [bottomText, setBottomText] = useState("Geser ke atas untuk info lebih lanjut")
+    const [isDesktop, setIsDesktop] = useState(false)
+
+    useEffect(() => {
+        setIsDesktop(window.innerWidth > 768)
+    }, [])
+
+    useEffect(() => {
+        if (isDesktop) {
+            setBottomText("Scroll ke bawah untuk info lebih lanjut")
+        } else {
+            setBottomText("Geser ke atas untuk info lebih lanjut")
+        }
+    }, [isDesktop])
+
     return (
         <div className={`${styles.packagesPage} virtual-page`} data-index={4}>
             <motion.div className={styles.titleWrapper}>
@@ -82,9 +98,9 @@ export default function PackagesPage({ activeIndex, direction }: Props) {
                 exit={{ opacity: 0, x: -30 * direction }}
                 transition={{ ...springTransition, delay: 0.8 }}
             >
-                <BiSolidChevronsUp />
-                Geser ke atas untuk info lebih lanjut
-                <BiSolidChevronsUp />
+                {isDesktop ? <BiSolidChevronsDown /> : <BiSolidChevronsUp />}
+                <span>{bottomText}</span>
+                {isDesktop ? <BiSolidChevronsDown /> : <BiSolidChevronsUp />}
             </motion.div>
         </div>
     )

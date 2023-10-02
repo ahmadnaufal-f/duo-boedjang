@@ -1,0 +1,72 @@
+.navigator {
+    position: fixed;
+    top: 25%;
+    height: fit-content;
+    z-index: 999;
+    display: flex; /* Use Flexbox to vertically center the button */
+    align-items: flex-start; /* Vertically center the button within the container */
+    flex-direction: row-reverse;
+    transform: translateY(-50%);
+    transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0.75;
+}
+
+.navigator:hover {
+    opacity: 1;
+}
+
+.navigatorContainer {
+    width: 250px;
+    height: fit-content;
+    background: var(--main-color);
+    overflow-y: auto;
+    transition: right 0.3s;
+    border-radius: 0 0 0 1rem;
+    box-shadow: 1.8px 1.8px 3.6px rgba(0, 0, 0, 0.07), 5px 5px 10px rgba(0, 0, 0, 0.1), 12.1px 12.1px 24.1px rgba(0, 0, 0, 0.13),
+        40px 40px 80px rgba(0, 0, 0, 0.2);
+}
+
+.navigatorContent {
+    padding: 20px 30px;
+}
+
+.navigatorItem {
+    cursor: pointer;
+    margin-bottom: 10px;
+    color: #fff;
+
+    transition: color 0.2s;
+}
+
+.navigatorItem:hover {
+    color: #ead27a;
+}
+
+.navigatorItem.active {
+    color: #fee790;
+}
+
+.buttonWrapper:focus-visible {
+    outline: none;
+}
+
+.navigatorButton {
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 10px 10px 10px 16px;
+    cursor: pointer;
+    border-radius: 1rem 0 0 1rem;
+    box-shadow: 1.8px 1.8px 3.6px rgba(0, 0, 0, 0.07), 5px 5px 10px rgba(0, 0, 0, 0.1), 12.1px 12.1px 24.1px rgba(0, 0, 0, 0.13),
+        40px 40px 80px rgba(0, 0, 0, 0.2);
+}
+
+.navigatorButtonIcon {
+    font-size: 24px;
+}
+
+@media (max-width: 768px) {
+    .navigator {
+        display: none;
+    }
+}

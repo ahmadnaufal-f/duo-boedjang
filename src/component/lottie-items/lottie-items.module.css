@@ -26,3 +26,22 @@
 .lottieWrapper > div {
     max-width: 390px;
 }
+
+@media (min-width: 720px) {
+    .lottieWrapper {
+        padding: 6rem 2rem 0;
+    }
+
+    .lottieWrapper[data-active-index="1"] {
+        filter: brightness(0.8);
+        will-change: filter;
+    }
+
+    .lottieWrapper[data-active-index="1"] > div {
+        opacity: 0.75;
+    }
+
+    .lottieWrapper[data-active-index="2"] {
+        scale: 1.3;
+    }
+}

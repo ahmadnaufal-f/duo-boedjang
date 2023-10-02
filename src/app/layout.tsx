@@ -7,9 +7,10 @@ import "@fortawesome/fontawesome-svg-core/styles.css"
 config.autoAddCss = false
 
 export const metadata: Metadata = {
-    title: "Es Coklat Duo Boedjang",
+    title: "Franchise Es Coklat Duo Boedjang",
     description: "Enaknya Terngiang-ngiang, Cuannya Bikin Riang",
-    keywords: "franchise, franchise minuman, franchise minuman coklat, franchise es coklat, franchise es teh, bisnis cuan",
+    keywords: "franchise, franchise minuman, franchise minuman coklat, franchise es coklat, franchise es teh, bisnis cuan, es coklat du boedjang",
+    themeColor: "#FEE790",
 }
 
 const Adigiana = localFont({ src: "/../../public/fonts/AdigianaUI.ttf" })

@@ -34,6 +34,11 @@ export default function Carousel({ slides, activeCol, setActiveCol }: CarouselPr
         <Swiper
             modules={[Pagination]}
             slidesPerView={1}
+            breakpoints={{
+                768: {
+                    slidesPerView: 4,
+                },
+            }}
             pagination={{ type: "bullets" }}
             wrapperClass={styles.wrapper}
             onSwiper={(swiper: SwiperType) => setSwiperInstance(swiper)}

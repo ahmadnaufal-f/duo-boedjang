@@ -64,3 +64,39 @@
     letter-spacing: -0.5px;
     text-wrap: balance;
 }
+
+@media (min-width: 768px) {
+    .titleWrapper h1 {
+        font-size: 2rem;
+        margin-block: 6rem 0.5rem;
+    }
+
+    .titleWrapper h1:last-of-type {
+        margin-block: 0 1rem;
+    }
+
+    .qnaWrapper {
+        width: 100%;
+        max-width: 1000px;
+        margin-inline: auto;
+        gap: 1rem;
+        margin-block-end: 5rem;
+    }
+
+    .qnaText {
+        height: 100%;
+    }
+
+    .question {
+        font-size: 1.25rem;
+        padding: 0.6rem;
+    }
+
+    .answer {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        padding: 0.6rem;
+    }
+}

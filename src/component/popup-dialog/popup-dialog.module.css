@@ -59,3 +59,17 @@
     align-items: center;
     justify-content: space-between;
 }
+
+@media (min-width: 768px) {
+    .dialog {
+        width: 30%;
+    }
+
+    .dialogTitle {
+        font-size: 1.5rem;
+    }
+
+    .dialogContent {
+        font-size: 1.25rem;
+    }
+}

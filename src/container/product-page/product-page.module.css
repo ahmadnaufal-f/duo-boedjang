@@ -75,3 +75,14 @@
 .secondMenu {
     --bg-color: var(--green);
 }
+
+@media (min-width: 768px) {
+    .product {
+        font-size: 2.4rem;
+        margin-block: 1rem 1rem;
+    }
+
+    .menu {
+        font-size: 2rem;
+    }
+}

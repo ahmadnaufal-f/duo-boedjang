@@ -93,3 +93,30 @@
 .descriptionItem > svg {
     margin-inline-end: 0.5rem;
 }
+
+@media (min-width: 768px) {
+    .titleWrapper h1 {
+        font-size: 2rem;
+    }
+
+    .titleWrapper .subtitleText {
+        font-size: 2rem;
+    }
+
+    .descriptionWrapper {
+        width: 100%;
+        max-width: 500px;
+        margin-inline: auto;
+        margin-block-end: 2.5rem;
+    }
+
+    .imageWrapper {
+        max-height: 40vh;
+        margin-block: 2rem;
+        padding: 0;
+    }
+
+    .descriptionTitle {
+        font-size: 1.5rem;
+    }
+}
