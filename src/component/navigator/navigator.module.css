@@ -1,14 +1,8 @@
 .navigator {
-    position: fixed;
-    top: 25%;
-    height: fit-content;
-    z-index: 999;
+    position: relative;
     display: flex; /* Use Flexbox to vertically center the button */
     align-items: flex-start; /* Vertically center the button within the container */
-    flex-direction: row-reverse;
-    transform: translateY(-50%);
-    transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    opacity: 0.75;
+    width: 18rem;
 }
 
 .navigator:hover {
@@ -16,25 +10,30 @@
 }
 
 .navigatorContainer {
-    width: 250px;
-    height: fit-content;
+    width: 18rem;
+    height: 100vh;
     background: var(--main-color);
     overflow-y: auto;
     transition: right 0.3s;
-    border-radius: 0 0 0 1rem;
-    box-shadow: 1.8px 1.8px 3.6px rgba(0, 0, 0, 0.07), 5px 5px 10px rgba(0, 0, 0, 0.1), 12.1px 12.1px 24.1px rgba(0, 0, 0, 0.13),
-        40px 40px 80px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
 }
 
 .navigatorContent {
     padding: 20px 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
 }
 
 .navigatorItem {
     cursor: pointer;
-    margin-bottom: 10px;
     color: #fff;
-
+    font-size: 1rem;
     transition: color 0.2s;
 }
 
@@ -54,15 +53,31 @@
     background: var(--main-color);
     color: #fff;
     border: none;
-    padding: 10px 10px 10px 16px;
+    padding: 0.625rem 1.25rem 0.625rem 1rem;
     cursor: pointer;
     border-radius: 1rem 0 0 1rem;
     box-shadow: 1.8px 1.8px 3.6px rgba(0, 0, 0, 0.07), 5px 5px 10px rgba(0, 0, 0, 0.1), 12.1px 12.1px 24.1px rgba(0, 0, 0, 0.13),
         40px 40px 80px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.logo {
+    margin: 0 auto;
 }
 
 .navigatorButtonIcon {
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 @media (max-width: 768px) {

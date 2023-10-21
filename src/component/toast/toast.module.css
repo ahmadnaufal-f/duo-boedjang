@@ -7,6 +7,13 @@
     width: 100vw;
 }
 
+@media (min-width: 768px) {
+    .toastWrapper {
+        left: unset;
+        width: calc(100% - 16rem);
+    }
+}
+
 .toast {
     max-width: calc(100% - 3rem);
     margin: 0 auto;

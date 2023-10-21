@@ -49,7 +49,7 @@ export default function ProductPage({ activeIndex }: Props) {
                         style={{ top: `${top - 60}px`, left: `${left}px` }}
                         initial={{ x: 30, y: 30, scale: 0 }}
                         animate={{ x: 0, y: 0, scale: 1 }}
-                        transition={{ ...springTransition }}
+                        transition={{ ...springTransition, delay: 0.15 }}
                     >
                         <div className={`${caveat.className} ${styles.special}`}>Special</div>
                         <div className={styles.menu}>Es Coklat</div>
@@ -59,7 +59,7 @@ export default function ProductPage({ activeIndex }: Props) {
                         style={{ top: `${top - 15}px`, right: `${right - 10}px` }}
                         initial={{ x: -30, y: 30, scale: 0 }}
                         animate={{ x: 0, y: 0, scale: 1 }}
-                        transition={{ ...springTransition }}
+                        transition={{ ...springTransition, delay: 0.15 }}
                     >
                         <div className={`${caveat.className} ${styles.special}`}>Special</div>
                         <div className={styles.menu}>Es Teh</div>

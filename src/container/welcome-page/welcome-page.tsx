@@ -30,6 +30,8 @@ export default function WelcomePage({ activeIndex, direction }: Props) {
                         <div className={styles.titleText}>
                             <h1>FRANCHISE ES COKLAT</h1>
                             <h1>DUO BOEDJANG</h1>
+                        </div>
+                        <div className={styles.logoWrapper}>
                             <Image src={"/images/logo.webp"} alt={"Logo Es Coklat Duo Boedjang"} width={121} height={150} className={styles.logo} />
                         </div>
                     </motion.div>

@@ -38,7 +38,7 @@ export default function PackageDetailPage({ activeIndex, direction }: Props) {
                 >
                     {headers.map(({ title }: Header, index: number) => (
                         <div
-                            key={index}
+                            key={`package_detail_page${index}`}
                             className={`${styles.tableHeaderItem} ${index === 0 ? styles.tableHeaderItemFirst : ""} ${milkyHoney.className}`}
                         >
                             {title}
@@ -72,7 +72,10 @@ export default function PackageDetailPage({ activeIndex, direction }: Props) {
                         </>
                     ))}
                     {headers.map(({ priceAfter }: Header, index: number) => (
-                        <div key={index} className={`${styles.tableFooterItem} ${index === 0 ? styles.tableFooterItemFirst : ""} ${exo.className}`}>
+                        <div
+                            key={`header_${index}`}
+                            className={`${styles.tableFooterItem} ${index === 0 ? styles.tableFooterItemFirst : ""} ${exo.className}`}
+                        >
                             {priceAfter}
                         </div>
                     ))}

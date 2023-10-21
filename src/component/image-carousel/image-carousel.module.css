@@ -1,0 +1,51 @@
+.container {
+    width: 100%;
+    height: 100%;
+    --swiper-navigation-color: var(--main-color);
+    --swiper-navigation-size: 1.5rem;
+}
+
+.container div:first-child {
+    width: 100%;
+    height: 100%;
+}
+
+.swiperSlide {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.swiperSlide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.nextButton,
+.prevButton {
+    position: absolute;
+}
+
+.nextButton {
+    right: -0.1rem;
+}
+
+.prevButton {
+    left: -0.1rem;
+}
+
+@media (min-width: 768px) {
+    .container {
+        --swiper-navigation-size: 2.5rem;
+    }
+
+    .nextButton {
+        right: -3rem;
+    }
+
+    .prevButton {
+        left: -3rem;
+    }
+}

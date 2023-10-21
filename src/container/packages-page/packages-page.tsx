@@ -63,24 +63,22 @@ export default function PackagesPage({ activeIndex, direction }: Props) {
                 <h1 className={styles.titleText}>Pilihan Paket Franchise</h1>
             </motion.div>
             <div className={`${milkyHoney.className} ${styles.packagesContainer}`}>
-                <AnimatePresence>
-                    {activeIndex === 4
-                        ? packages.map((packageItem, index) => (
-                              <motion.div
-                                  className={styles.package}
-                                  key={packageItem.title}
-                                  initial={{ opacity: 0, x: 30 * direction }}
-                                  animate={{ opacity: 1, x: 0, transition: { ...springTransition, delay: 0.5 + index * 0.1, duration: 0.3 } }}
-                                  exit={{ opacity: 0, x: -30 * direction, transition: { duration: 0.1 } }}
-                              >
-                                  <h2 className={styles.packageTitle}>{packageItem.title}</h2>
-                                  <div className={`${exo.className} ${styles.packagePriceBefore}`}>{packageItem.priceBefore}</div>
-                                  <div className={`${exo.className} ${styles.packagePriceAfter}`}>{packageItem.priceAfter}</div>
-                                  <Image src="/images/logo.svg" alt="Package" className={styles.logoUnderlay} width={210} height={210} />
-                              </motion.div>
-                          ))
-                        : null}
-                </AnimatePresence>
+                {activeIndex === 4
+                    ? packages.map((packageItem, index) => (
+                          <motion.div
+                              className={styles.package}
+                              key={packageItem.title}
+                              initial={{ opacity: 0, x: 30 * direction }}
+                              animate={{ opacity: 1, x: 0, transition: { ...springTransition, delay: 0.5 + index * 0.1, duration: 0.3 } }}
+                              exit={{ opacity: 0, x: -30 * direction, transition: { duration: 0.1 } }}
+                          >
+                              <h2 className={styles.packageTitle}>{packageItem.title}</h2>
+                              <div className={`${exo.className} ${styles.packagePriceBefore}`}>{packageItem.priceBefore}</div>
+                              <div className={`${exo.className} ${styles.packagePriceAfter}`}>{packageItem.priceAfter}</div>
+                              <Image src="/images/logo.svg" alt="Package" className={styles.logoUnderlay} width={210} height={210} />
+                          </motion.div>
+                      ))
+                    : null}
             </div>
             <motion.div
                 className={styles.objectsWrapper}

@@ -45,7 +45,7 @@ export default function Carousel({ slides, activeCol, setActiveCol }: CarouselPr
             allowTouchMove={false}
         >
             {slides.map((slide, index) => (
-                <SwiperSlide key={index}>{slide}</SwiperSlide>
+                <SwiperSlide key={`slide${index}`}>{slide}</SwiperSlide>
             ))}
         </Swiper>
     )

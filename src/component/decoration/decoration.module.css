@@ -53,6 +53,7 @@
     }
 
     .bottomTextContainer {
+        width: calc(100% - 16rem);
         bottom: 7.5vh;
     }
 

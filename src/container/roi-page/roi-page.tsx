@@ -25,10 +25,10 @@ const exo = Exo({ weight: ["400", "800"], subsets: ["latin"] })
 const concertOne = Concert_One({ weight: ["400"], subsets: ["latin"] })
 
 const tableData: string[][] = [
-    ["Omzet/hari", "Rp 180.000", "Rp 360.000", "Rp 540.000", "Rp 720.000", "Rp 900.000"],
-    ["Profit/hari", "Rp 89.548", "Rp 179.097", "Rp 268.645", "Rp 358.194", "Rp 447.742"],
-    ["Profit/bulan", "Rp 2.328.261", "Rp 4.656.521", "Rp 6.984.782", "Rp 9.313.042", "Rp 11.641.303"],
-    ["Balik Modal (hari)", "39", "19", "13", "10", "8"],
+    ["Omzet/hari", "Rp 270.000", "Rp 360.000", "Rp 540.000", "Rp 720.000", "Rp 900.000"],
+    ["Profit/hari", "Rp 129.105", "Rp 172.140", "Rp 258.211", "Rp 344.281", "Rp 430.351"],
+    ["Profit/bulan", "Rp 3.356.737", "Rp 4.475.649", "Rp 6.713.474", "Rp 9.951.298", "Rp 11.189.123"],
+    ["Balik Modal (hari)", "27", "20", "13", "10", "8"],
 ]
 
 export default function ROIPage({ activeIndex, direction }: Props) {
@@ -40,7 +40,7 @@ export default function ROIPage({ activeIndex, direction }: Props) {
     const scrollerRef = useRef<HTMLDivElement>(null)
 
     const slides = tableData.map((data, index) => (
-        <div className={styles.movingTable} key={index}>
+        <div className={styles.movingTable} key={`tableData_${index}`}>
             {data.map((item, index2) =>
                 index2 === 0 ? (
                     <div key={`${index} ${index2}`} className={`${styles.tableHeader} ${concertOne.className}`}>
@@ -92,32 +92,32 @@ export default function ROIPage({ activeIndex, direction }: Props) {
                         <div className={`${styles.tableRow} ${styles.tableFirstRow} ${styles.tableColumnOne}`}>Porsi Per Pack</div>
                         <div className={`${styles.tableRow} ${styles.tableFirstRow} ${styles.tableColumnTwo}`}>55</div>
                         <div className={`${styles.tableRow} ${styles.tableFirstRow} ${styles.tableColumnThree}`}>33</div>
-                        <div className={`${styles.tableRow} ${styles.tableColumnOne}`}>Bahan Baku</div>
+                        <div className={`${styles.tableRow} ${styles.tableColumnOne}`}>Bahan Baku*</div>
                         <div className={`${styles.tableRow} ${styles.tableColumnTwo}`}>
                             <span>Rp</span>
-                            <span>3.018</span>
+                            <span>3.047</span>
                         </div>
                         <div className={`${styles.tableRow} ${styles.tableColumnThree}`}>
                             <span>Rp</span>
-                            <span>3.018</span>
+                            <span>4.946</span>
                         </div>
                         <div className={`${styles.tableRow} ${styles.tableColumnOne}`}>Packaging</div>
                         <div className={`${styles.tableRow} ${styles.tableColumnTwo}`}>
                             <span>Rp</span>
-                            <span>475</span>
+                            <span>600</span>
                         </div>
                         <div className={`${styles.tableRow} ${styles.tableColumnThree}`}>
                             <span>Rp</span>
-                            <span>655</span>
+                            <span>800</span>
                         </div>
                         <div className={`${styles.tableRow} ${styles.tableColumnOne}`}>Total HPP</div>
                         <div className={`${styles.tableRow} ${styles.tableColumnTwo}`}>
                             <span>Rp</span>
-                            <span>3.493</span>
+                            <span>3.647</span>
                         </div>
                         <div className={`${styles.tableRow} ${styles.tableColumnThree}`}>
                             <span>Rp</span>
-                            <span>5.555</span>
+                            <span>5.746</span>
                         </div>
                         <div className={`${styles.tableRow} ${styles.tableLastRow} ${styles.tableColumnOne}`}>Harga Jual</div>
                         <div className={`${styles.tableRow} ${styles.tableLastRow} ${styles.tableColumnTwo}`}>
@@ -133,14 +133,14 @@ export default function ROIPage({ activeIndex, direction }: Props) {
                         </div>
                         <div className={`${styles.tableRowSummary} ${styles.tableFirstRow} ${styles.tableRow}`}>
                             <span>Rp</span>
-                            <span>4.507</span>
+                            <span>4.353</span>
                         </div>
                         <div className={`${styles.tableRowSummary} ${styles.tableFirstRow} ${styles.tableRow}`}>
                             <span>Rp</span>
-                            <span>4.448</span>
+                            <span>4.254</span>
                         </div>
-                        <div className={`${styles.tableRowSummary} ${styles.tableLastRow} ${styles.tableRow}`}>56%</div>
-                        <div className={`${styles.tableRowSummary} ${styles.tableLastRow} ${styles.tableRow}`}>44%</div>
+                        <div className={`${styles.tableRowSummary} ${styles.tableLastRow} ${styles.tableRow}`}>54%</div>
+                        <div className={`${styles.tableRowSummary} ${styles.tableLastRow} ${styles.tableRow}`}>43%</div>
                     </motion.div>
                     <motion.div
                         className={styles.tableTitle}
@@ -172,20 +172,18 @@ export default function ROIPage({ activeIndex, direction }: Props) {
                                 <Carousel slides={slides} activeCol={activeCol} setActiveCol={setActiveCol} />
                             </div>
                         </div>
-                        <AnimatePresence>
-                            {activeCol === 3 ? (
-                                <motion.div
-                                    className={styles.popup}
-                                    style={{ top: `${top}px`, right: `${right}px` }}
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: 1, transition: { ...springTransition } }}
-                                    exit={{ scale: 0 }}
-                                    key={"popup"}
-                                >
-                                    Balik Modal Hitungan Hari!!!
-                                </motion.div>
-                            ) : null}
-                        </AnimatePresence>
+                        {activeCol === 3 ? (
+                            <motion.div
+                                className={styles.popup}
+                                style={{ top: `${top}px`, right: `${right}px` }}
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1, transition: { ...springTransition } }}
+                                exit={{ scale: 0 }}
+                                key={"popup"}
+                            >
+                                Balik Modal Hitungan Hari!!!
+                            </motion.div>
+                        ) : null}
                     </motion.div>
                     <motion.div
                         className={styles.tableNavigation}

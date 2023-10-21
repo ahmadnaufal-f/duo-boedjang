@@ -199,12 +199,12 @@
 @media (min-width: 768px) {
     .titleWrapper h1 {
         font-size: 2rem;
-        margin-block-start: 2rem;
+        margin-block-start: 1rem;
     }
 
     .table {
         width: 100%;
-        max-width: 768px;
+        max-width: 48rem;
         margin: 1rem auto;
     }
 
@@ -215,7 +215,7 @@
     .tableTitle,
     .swipeTable {
         width: 100%;
-        max-width: 1200px;
+        max-width: 75rem;
         margin: 0 auto;
     }
 
@@ -225,7 +225,7 @@
 
     .swipeTable {
         grid-template-columns: 1fr 4fr;
-        margin-block-end: 3rem;
+        margin-block-end: 2rem;
     }
 
     .tableNavigation {

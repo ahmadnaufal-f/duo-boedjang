@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import localFont from "next/font/local"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
+import Script from "next/script"
 
 config.autoAddCss = false
 
@@ -18,6 +19,18 @@ const Adigiana = localFont({ src: "/../../public/fonts/AdigianaUI.ttf" })
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
+            <Script async src="https://www.googletagmanager.com/gtag/js?id=G-K3ZFZY9GB2" />
+            {/* Google Tag (gtag.js) */}
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-K3ZFZY9GB2');
+                `,
+                }}
+            />
             <body className={Adigiana.className}>
                 {children}
                 <div className="backgroundPattern"></div>

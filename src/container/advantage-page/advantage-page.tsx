@@ -76,28 +76,26 @@ export default function AdvantagePage({ activeIndex, direction }: Props) {
             <motion.div className={styles.titleWrapper}>
                 <h1 className={styles.titleText}>Keunggulan Kami</h1>
             </motion.div>
-            <AnimatePresence>
-                {activeIndex === 3 ? (
-                    <div className={styles.advantageWrapper} key="advantage-wrapper">
-                        {advantages.map((advantage, index) => (
-                            <motion.div
-                                key={index}
-                                className={styles.advantage}
-                                initial={{ opacity: 0, x: 30 * direction }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -30 * direction }}
-                                transition={{ ...springTransition, delay: 0.5 + index * 0.1 }}
-                            >
-                                <div className={styles.iconWrapper}>{advantage.icon}</div>
-                                <div className={styles.advantageText}>
-                                    <h3 className={`${dosis.className} ${styles.advantageTitle}`}>{advantage.title}</h3>
-                                    <p className={`${concertOne.className} ${styles.advantageDescription}`}>{advantage.description}</p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                ) : null}
-            </AnimatePresence>
+            {activeIndex === 3 ? (
+                <div className={styles.advantageWrapper} key="advantage-wrapper">
+                    {advantages.map((advantage, index) => (
+                        <motion.div
+                            key={`advantage_${index}`}
+                            className={styles.advantage}
+                            initial={{ opacity: 0, x: 30 * direction }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -30 * direction }}
+                            transition={{ ...springTransition, delay: 0.5 + index * 0.1 }}
+                        >
+                            <div className={styles.iconWrapper}>{advantage.icon}</div>
+                            <div className={styles.advantageText}>
+                                <h3 className={`${dosis.className} ${styles.advantageTitle}`}>{advantage.title}</h3>
+                                <p className={`${concertOne.className} ${styles.advantageDescription}`}>{advantage.description}</p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            ) : null}
         </div>
     )
 }

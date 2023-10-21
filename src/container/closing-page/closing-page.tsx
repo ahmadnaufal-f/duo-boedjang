@@ -23,82 +23,80 @@ const dosis = Dosis({ subsets: ["latin"] })
 
 export default function ClosingPage({ activeIndex }: Props) {
     return (
-        <div className={`${styles.closingPage} virtual-page`} data-index={11}>
-            <AnimatePresence>
-                {activeIndex === 11 ? (
-                    <div key="closing-wrapper">
-                        <motion.div
-                            className={styles.logoWrapper}
-                            initial={{ opacity: 0, x: 30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -30 }}
-                            transition={{ ...springTransition, delay: 0.5 }}
-                        >
-                            <Image src={"/images/logo.webp"} alt={"Logo Es Coklat Duo Boedjang"} width={113} height={140} className={styles.logo} />
-                        </motion.div>
-                        <motion.div
-                            className={styles.closingTextWrapper}
-                            initial={{ opacity: 0, x: 30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -30 }}
-                            transition={{ ...springTransition, delay: 0.6 }}
-                        >
-                            <div className={styles.closingText}>
-                                <h1>TUNGGU APA LAGI?</h1>
-                                <h1>MARI BERCUAN RIANG</h1>
-                                <h1>BERSAMA</h1>
-                                <h1>ES COKLAT DUO BOEDJANG!</h1>
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            className={styles.ctaWrapper}
-                            initial={{ opacity: 0, x: 30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -30 }}
-                            transition={{ ...springTransition, delay: 0.7 }}
-                        >
-                            <CtaButton text={"Hubungi Admin"} activeIndex={activeIndex} />
-                        </motion.div>
-                        <motion.div
-                            className={styles.bankWrapper}
-                            initial={{ opacity: 0, x: 30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -30 }}
-                            transition={{ ...springTransition, delay: 0.8 }}
-                        >
-                            <div className={`${concertOne.className} ${styles.bank}`}>
-                                <p>Nomor Rekening</p>
-                                <ul className={styles.bankList}>
-                                    <li>
-                                        <div>
-                                            BCA<span>:</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div>
-                                            Mandiri<span>:</span>
-                                        </div>
-                                    </li>
-                                    <p>5020352231</p>
-                                    <p>102-00-1160214-8</p>
-                                </ul>
-                                <p>An. CV Kulinerindo Jaya Sentosa</p>
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            className={styles.warningWrapper}
-                            initial={{ opacity: 0, x: 30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -30 }}
-                            transition={{ ...springTransition, delay: 0.9 }}
-                        >
-                            <div className={`${concertOne.className}`}>
-                                Hati-hati penipuan mengatasnamakan Es Coklat Duo Boedjang maupun CV Kulinerindo Jaya Sentosa!
-                            </div>
-                        </motion.div>
-                    </div>
-                ) : null}
-            </AnimatePresence>
+        <div className={`${styles.closingPage} virtual-page`} data-index={12}>
+            {activeIndex === 12 ? (
+                <div key="closing-wrapper">
+                    <motion.div
+                        className={styles.logoWrapper}
+                        initial={{ opacity: 0, x: 30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -30 }}
+                        transition={{ ...springTransition, delay: 0.5 }}
+                    >
+                        <Image src={"/images/logo.webp"} alt={"Logo Es Coklat Duo Boedjang"} width={113} height={140} className={styles.logo} />
+                    </motion.div>
+                    <motion.div
+                        className={styles.closingTextWrapper}
+                        initial={{ opacity: 0, x: 30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -30 }}
+                        transition={{ ...springTransition, delay: 0.6 }}
+                    >
+                        <div className={styles.closingText}>
+                            <h1>TUNGGU APA LAGI?</h1>
+                            <h1>MARI BERCUAN RIANG</h1>
+                            <h1>BERSAMA</h1>
+                            <h1>ES COKLAT DUO BOEDJANG!</h1>
+                        </div>
+                    </motion.div>
+                    <motion.div
+                        className={styles.ctaWrapper}
+                        initial={{ opacity: 0, x: 30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -30 }}
+                        transition={{ ...springTransition, delay: 0.7 }}
+                    >
+                        <CtaButton text={"Hubungi Admin"} activeIndex={activeIndex} />
+                    </motion.div>
+                    <motion.div
+                        className={styles.bankWrapper}
+                        initial={{ opacity: 0, x: 30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -30 }}
+                        transition={{ ...springTransition, delay: 0.8 }}
+                    >
+                        <div className={`${concertOne.className} ${styles.bank}`}>
+                            <p>Nomor Rekening</p>
+                            <ul className={styles.bankList}>
+                                <li>
+                                    <div>
+                                        BCA<span>:</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        Mandiri<span>:</span>
+                                    </div>
+                                </li>
+                                <p>5020352231</p>
+                                <p>102-00-1160214-8</p>
+                            </ul>
+                            <p>An. CV Kulinerindo Jaya Sentosa</p>
+                        </div>
+                    </motion.div>
+                    <motion.div
+                        className={styles.warningWrapper}
+                        initial={{ opacity: 0, x: 30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -30 }}
+                        transition={{ ...springTransition, delay: 0.9 }}
+                    >
+                        <div className={`${concertOne.className}`}>
+                            Hati-hati penipuan mengatasnamakan Es Coklat Duo Boedjang maupun CV Kulinerindo Jaya Sentosa!
+                        </div>
+                    </motion.div>
+                </div>
+            ) : null}
             <div className={styles.footer}>
                 <p className={`${dosis.className} ${styles.footerText}`}>
                     <span>

@@ -144,25 +144,42 @@
 
     .bankWrapper {
         width: calc(100% - 2rem);
-        max-width: 400px;
+        max-width: 25rem;
     }
 
     .bankWrapper {
-        font-size: 1.15rem;
+        font-size: 1rem;
     }
 
     .bank p:first-child {
-        font-size: 1.3rem;
+        font-size: 1.15rem;
     }
 
     .bankList {
         display: grid;
+        margin-block: 0.5rem;
     }
 
     .warningWrapper {
         width: calc(100% - 5rem);
-        max-width: 600px;
+        max-width: 37.5rem;
         padding: 1rem;
-        font-size: 1.2em;
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 1.01) and (min-aspect-ratio: 1) {
+    /* Reset the DPR to 1 for your website */
+    .logoWrapper {
+        width: 80%;
+        margin-inline: auto;
+    }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 1.26) and (min-aspect-ratio: 1) {
+    /* Reset the DPR to 1 for your website */
+    .logoWrapper {
+        width: 66.67%;
+        margin-inline: auto;
     }
 }

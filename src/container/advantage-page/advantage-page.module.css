@@ -77,13 +77,13 @@
 
     .titleWrapper h1 {
         font-size: 2rem;
-        padding: 3rem 0 1rem;
+        padding: 1.5rem 0 1rem;
     }
 
     .advantageWrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        max-width: 1200px;
+        max-width: 75rem;
         margin: 0 auto;
         gap: 0.75rem;
     }

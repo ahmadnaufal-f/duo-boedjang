@@ -117,7 +117,7 @@
         grid-template-columns: repeat(2, 1fr);
         margin: 2rem auto;
         gap: 2rem;
-        max-width: 1080px;
+        max-width: 67.5rem;
         width: 100%;
     }
 
@@ -145,7 +145,7 @@
     }
 
     .packagePriceAfter {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     .logoUnderlay {
@@ -159,7 +159,7 @@
     }
 
     .objectsWrapper {
-        max-height: 40vh;
+        max-height: 38vh;
         margin-block: 2rem;
     }
 

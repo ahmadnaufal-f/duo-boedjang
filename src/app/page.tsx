@@ -17,6 +17,7 @@ import QnAPage from "@/container/qna-page/qna-page"
 import ClosingPage from "@/container/closing-page/closing-page"
 import PackagesDescPage from "@/container/package-desc-page/package-desc-page"
 import Navigator from "@/component/navigator/navigator"
+import GalleryPage from "@/container/gallery-page/gallery-page"
 
 const variants = {
     enter: (direction: number) => {
@@ -105,42 +106,9 @@ const jsonData = {
 }
 
 export default function Home() {
-    // const containerRef = useRef<HTMLDivElement | null>(null)
-    // const [activeIndex, setActiveIndex] = useState<number>(0)
-    // const [prevIndex, setPrevIndex] = useState<number>(0)
-
-    // useEffect(() => {
-    //     const observer = new IntersectionObserver(
-    //         (entries) => {
-    //             entries.forEach((entry) => {
-    //                 if (entry.isIntersecting) {
-    //                     // The virtual page is currently in the viewport
-    //                     const pageIndex = parseInt(entry.target.getAttribute("data-index") || "0", 10)
-    //                     const currIndex = parseInt(containerRef.current?.getAttribute("data-active-index") || "0", 10)
-    //                     if (currIndex !== pageIndex) setPrevIndex(currIndex)
-    //                     setActiveIndex(pageIndex)
-    //                     console.log(currIndex, pageIndex)
-    //                 }
-    //             })
-    //         },
-    //         { threshold: 0.2 } // Trigger when at least 50% of the virtual page is visible
-    //     )
-
-    //     const virtualPages = document.querySelectorAll(".virtual-page")
-
-    //     virtualPages.forEach((page, index) => {
-    //         page.setAttribute("data-index", index.toString()) // Add a data attribute to identify the index
-    //         observer.observe(page)
-    //     })
-
-    //     console.log(observer)
-
-    //     return () => {
-    //         observer.disconnect() // Cleanup when component unmounts
-    //     }
-    // }, [])
     const [[page, direction], setPage] = useState([0, 0])
     const [isDesktop, setIsDesktop] = useState<boolean>(false)
+    const [isAnimating, setIsAnimating] = useState<boolean>(false)
 
     const pages: Page[] = [
         { name: "Cover", children: <WelcomePage activeIndex={page} direction={direction} /> },
@@ -154,6 +122,7 @@ export default function Home() {
         { name: "Tambahan Paket", children: <PackageAddPage activeIndex={page} direction={direction} /> },
         { name: "Perhitungan ROI", children: <ROIPage activeIndex={page} direction={direction} /> },
         { name: "Tanya Jawab", children: <QnAPage activeIndex={page} direction={direction} /> },
+        { name: "Galeri", children: <GalleryPage /> },
         { name: "Penutup", children: <ClosingPage activeIndex={page} /> },
     ]
 
@@ -167,6 +136,7 @@ export default function Home() {
 
     useEffect(() => {
         const handleScroll = (event: WheelEvent) => {
+            if (isAnimating) return
             // Detect scroll direction (positive for down, negative for up)
             const deltaY = event.deltaY
 
@@ -177,6 +147,11 @@ export default function Home() {
                 // Scroll up
                 paginate(-1)
             }
+
+            setIsAnimating(true)
+            setTimeout(() => {
+                setIsAnimating(false)
+            }, 700)
         }
 
         // Add the scroll event listener when the component mounts
@@ -186,7 +161,7 @@ export default function Home() {
         return () => {
             window.removeEventListener("wheel", handleScroll)
         }
-    }, [paginate])
+    }, [paginate, isAnimating])
 
     useEffect(() => {
         setIsDesktop(window.innerWidth > 768)
@@ -195,40 +170,42 @@ export default function Home() {
     return (
         <main className={styles.main} id={"page-container"} data-active-index={page} data-direction={direction}>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonData) }} />
+            <div className={styles.columnOne}>
+                <Navigator page={page} setPage={setPage} pages={pages} />
+            </div>
+            <div className={styles.columnTwo}>
+                <AnimatePresence initial={false} custom={direction}>
+                    <motion.div
+                        key={pages[page].name}
+                        custom={direction}
+                        variants={variants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{
+                            y: { type: "spring", stiffness: 300, damping: 30 },
+                            opacity: { duration: 0.2 },
+                        }}
+                        drag="y"
+                        dragConstraints={{ top: 0, bottom: 0 }}
+                        dragElastic={1}
+                        onDragEnd={(e, { offset, velocity }) => {
+                            const swipe = swipePower(offset.y, velocity.y)
 
-            <AnimatePresence initial={false} custom={direction}>
-                <motion.div
-                    key={pages[page].name}
-                    custom={direction}
-                    variants={variants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    transition={{
-                        y: { type: "spring", stiffness: 300, damping: 30 },
-                        opacity: { duration: 0.2 },
-                    }}
-                    drag="y"
-                    dragConstraints={{ top: 0, bottom: 0 }}
-                    dragElastic={1}
-                    onDragEnd={(e, { offset, velocity }) => {
-                        const swipe = swipePower(offset.y, velocity.y)
-
-                        if (swipe < -swipeConfidenceThreshold) {
-                            paginate(1)
-                        } else if (swipe > swipeConfidenceThreshold) {
-                            paginate(-1)
-                        }
-                    }}
-                    style={{ height: "100vh", width: "100vw", display: "flex", position: "absolute" }}
-                >
-                    {pages[page].children}
-                </motion.div>
-                {page <= 2 ? <Decoration activeIndex={page} direction={direction} key={"decoration"} isDesktop={isDesktop} /> : null}
-                {page <= 2 ? <LottieItems activeIndex={page} key={"lottie"} /> : null}
-            </AnimatePresence>
-
-            <Navigator page={page} setPage={setPage} pages={pages} />
+                            if (swipe < -swipeConfidenceThreshold) {
+                                paginate(1)
+                            } else if (swipe > swipeConfidenceThreshold) {
+                                paginate(-1)
+                            }
+                        }}
+                        style={{ height: "100vh", width: "100%", display: "flex", position: "absolute" }}
+                    >
+                        {pages[page].children}
+                    </motion.div>
+                    {page <= 2 ? <Decoration activeIndex={page} direction={direction} key={"decoration"} isDesktop={isDesktop} /> : null}
+                    {page <= 2 ? <LottieItems activeIndex={page} key={"lottie"} /> : null}
+                </AnimatePresence>
+            </div>
         </main>
     )
 }

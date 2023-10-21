@@ -103,14 +103,14 @@
     .table {
         font-size: 0.9rem;
         width: 100%;
-        max-width: 840px;
+        max-width: 52.5rem;
         margin: 0.5rem auto;
         grid-template-columns: 1.2fr 1fr 1fr;
     }
 
     .tableRowItem {
         margin-block-start: 0;
-        padding-block: 0.3rem;
+        padding-block: 0.25rem;
         text-align: center;
         justify-content: center;
     }
@@ -118,6 +118,6 @@
     .tableHeaderItem,
     .tableFooterItem {
         font-size: 1.1rem;
-        padding-block: 0.35rem;
+        padding-block: 0.15rem;
     }
 }

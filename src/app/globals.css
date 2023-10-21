@@ -26,6 +26,20 @@
     --green-darker: #1e4600;
 }
 
+@media screen and (-webkit-min-device-pixel-ratio: 1.01) and (min-aspect-ratio: 1) {
+    /* Reset the DPR to 1 for your website */
+    :root {
+        font-size: 14.4px;
+    }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 1.26) and (min-aspect-ratio: 1) {
+    /* Reset the DPR to 1 for your website */
+    :root {
+        font-size: 11px;
+    }
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
